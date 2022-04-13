@@ -1,27 +1,15 @@
 plugins {
-    id 'com.android.library'
-    id 'com.google.protobuf'
-    id 'kotlin-android'
-    id 'maven-publish'
+    id "com.google.protobuf"
+    id "java-library"
+    id 'com.github.johnrengelman.shadow' version '4.0.4'
 }
 
-android {
-    defaultConfig {
-        buildConfigField 'String', 'CV_API_VERSION', "\"3.1.0\""
-    }
+shadowJar {
+    archiveBaseName.set('cvproto')
+    archiveClassifier.set('')
+    archiveVersion.set('')
 
-    compileOptions {
-        sourceCompatibility JavaVersion.VERSION_1_8
-        targetCompatibility JavaVersion.VERSION_1_8
-    }
-
-    sourceSets {
-        main {
-            proto {
-                srcDir 'src/main/proto'
-            }
-        }
-    }
+    relocate 'com.google.protobuf', 'shadow.google.protobuf'
 }
 
 protobuf {
@@ -48,51 +36,4 @@ protobuf {
 
 dependencies {
     api "com.google.protobuf:protobuf-lite:$versions.protobuf_lite"
-}
-
-afterEvaluate {
-    publishing {
-        repositories.add(rootProject.repositories.getByName('OSSRH'))
-
-        publications {
-            mavenCvProto(MavenPublication) {
-                from components.release
-
-                groupId = publication.pomGroupID + '.cv'
-                artifactId = "proto"
-                version = publication.pomCvLibVersion
-
-                pom {
-                    name = "cv:proto"
-                    description = 'protos used for parcelling of entities'
-                    url = publication.githubUrl
-                    licenses {
-                        license {
-                            name = publication.licenseName
-                            url = publication.licenseUrl
-                        }
-                    }
-                    developers {
-                        developer {
-                            name = 'Dmitry Levshunov'
-                            email = 'Levshunov.D.A@sberbank.ru'
-                        }
-                        developer {
-                            name = 'Irina Karpenko'
-                            email = 'IViKarpenko@sberbank.ru'
-                        }
-                    }
-                    scm {
-                        connection = publication.connectionUrl
-                        developerConnection = publication.connectionUrl
-                        url = publication.githubUrl
-                    }
-                }
-            }
-        }
-    }
-
-    signing {
-        sign publishing.publications.mavenCvProto
-    }
 }

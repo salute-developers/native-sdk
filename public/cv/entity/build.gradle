@@ -16,7 +16,7 @@ android {
 }
 
 dependencies {
-    implementation project(':public:cv:proto')
+    implementation project(path: ':public:cv:proto', configuration: 'shadow')
     implementation project(':public:cv:util')
 
     implementation "androidx.annotation:annotation:$versions.annotation"
