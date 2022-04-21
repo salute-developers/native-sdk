@@ -10,12 +10,18 @@ import ru.sberdevices.common.binderhelper.createCached
 import ru.sberdevices.common.coroutines.CoroutineDispatchers
 import ru.sberdevices.services.paylib.aidl.wrappers.PayStatusListenerWrapperImpl
 
+/**
+ * Фабрика для создания экземпляра [PayLib]
+ */
 class PayLibFactory(
     private val context: Context,
     private val coroutineDispatchers: CoroutineDispatchers,
     private val binderHelperFactory2: BinderHelperFactory2,
 ) {
 
+    /**
+     * @return Экземпляр [PayLib], работающий по биндеру.
+     */
     fun create(): PayLib = PayLibImpl(
         helper = getHelper(),
         dispatchers = coroutineDispatchers,
