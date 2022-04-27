@@ -18,3 +18,4 @@ Documentation regarding development of Native Apps is available at [developer’
 
 # Support
 Please send your feedback and feature requests to our [issues board](https://github.com/sberdevices/native_smartapp_sdk/issues).
+
