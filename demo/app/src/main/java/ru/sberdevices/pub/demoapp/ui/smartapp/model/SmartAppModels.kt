@@ -1,8 +1,7 @@
-package ru.sberdevices.pub.demoapp.ui.smartapp
+package ru.sberdevices.pub.demoapp.ui.smartapp.model
 
 import kotlinx.serialization.SerialName
 import kotlinx.serialization.Serializable
-import ru.sberdevices.pub.demoapp.ui.smartapp.model.CardInfo
 
 /**
  * Items variants
@@ -43,24 +42,6 @@ internal class WearThisCommand(
 @Serializable
 @SerialName("dont_wear_anything")
 internal class ClearClothesCommand: BaseCommand()
-
-/**
- * Command for successful purchase of [orderBundle] with [invoiceId]
- */
-@Serializable
-@SerialName("buy_success")
-internal class BuySuccessCommand(
-    val invoiceId: String,
-    val orderBundle: List<CardInfo>
-): BaseCommand()
-
-/**
- * Command for failed purchase
- */
-@Serializable
-@SerialName("buy_fail")
-internal class BuyFailCommand(
-): BaseCommand()
 
 /**
  * Items for purchase

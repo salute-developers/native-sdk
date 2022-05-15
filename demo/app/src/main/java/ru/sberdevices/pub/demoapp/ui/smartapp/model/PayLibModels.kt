@@ -3,21 +3,82 @@ package ru.sberdevices.pub.demoapp.ui.smartapp.model
 import kotlinx.serialization.Serializable
 
 /**
- * Params to create a payment.
- * We need information about items to buy contained in [cardInfo]
- * Also we need about order contained in [orderInfo]
+ * Базовая структура счета для создания заказа.
+ * @see <a href="https://developers.sber.ru/docs/ru/va/reference/smartservices/smartpay/processing/smartpay-api">API SmartPay</a>
  */
 @Serializable
-data class BuyParameters(
-    val cardInfo: CardInfo,
-    val orderInfo: OrderInfo
+data class Invoice(
+    val invoice: Order
 )
 
 /**
- * Applicable only to russian individual enterprise. Hence KD in russian.
+ * Базовая структура для создания заказа
  */
 @Serializable
-data class CardInfo(
+data class Order(
+    val order: OrderInfo
+)
+
+/**
+ * Описание заказа
+ */
+@Serializable
+data class OrderInfo(
+    /**
+     * Идентификатор заказа.
+     * Должен быть уникален в рамках выделенного для приложения service_id, иначе не будет создан новый invoice_id
+     */
+    val order_id: String,
+
+    /**
+     * Дата и время заказа в формате RFC 3339
+     */
+    val order_date: String,
+
+    /**
+     * Сумма счета без разделителя, в копейках. Например, 1 рубль передается в этом поле как 100.
+     * Если в запросе указывается корзина товаров, то это поле должно быть равно сумме стоимости всех товаров в корзине sum(order_bundle.item_amount)
+     */
+    val amount: Int,
+
+    /**
+     * Краткое назначение платежа
+     */
+    val purpose: String,
+
+    /**
+     * Описание платежа для отображения клиенту
+     */
+    val description: String,
+
+    /**
+     * Идентификатор сервиса, полученный при выдаче токена для авторизации запроса
+     */
+    val service_id: String,
+
+    /**
+     * Код валюты в формате ISO 4217.
+     * Пока поддерживается только значение RUB
+     */
+    val currency: String = "RUB",
+
+    /**
+     * Язык текстовых полей в формате BCP 47.
+     * Пока поддерживается только значение ru-RU
+     */
+    val language: String = "ru-RU",
+
+    /**
+     * Корзина покупок
+     */
+    val order_bundle: List<ShoppingCartItem>
+)
+
+/**
+ * Товарная позиция из корзины покупок
+ */
+@Serializable
+data class ShoppingCartItem(
     /**
      * Номер (идентификатор) товарной позиции в системе магазина. Параметр должен быть уникальным в рамках запроса
      */
@@ -51,90 +112,56 @@ data class CardInfo(
     /**
      * Номер (идентификатор) товарной позиции в системе магазина. Параметр должен быть уникальным в рамках запроса
      */
-    val item_code: String,
-
-    /**
-     * Значение ставки НДС:
-     *
-     * 0: без НДС
-     * 1: НДС по ставке 0%
-     * 2: НДС по ставке 10%
-     * 3: НДС по ставке 18%
-     * 4: НДС по ставке 10/110
-     * 5: НДС по ставке 18/118
-     * 6: НДС по ставке 20%
-     * 7: НДС по ставке 20/120
-     *
-     * Значение "НДС по ставке 0%" отличается от варианта "без НДС" только формированием чека
-     * в зависимости от системы налогооблажения. По сумме налога разницы нет
-     *
-     */
-    val tax_type: Int
+    val item_code: String
 )
 
 /**
- * Quantity [value] of item and sense of what items are measured in [measure]. This measure is user-defined string
+ * Описание количественных характеристик определенной позиции корзины
  */
 @Serializable
 data class Quantity(
+    /**
+     * Количество товара в позиции
+     */
     val value: Int,
+
+    /**
+     * Единица измерения товара в позиции
+     */
     val measure: String
 )
 
 /**
- * Applicable only to russian individual enterprise. Hence KD in russian.
+ * Структура ответа SmartAPI на создание счета
  */
 @Serializable
-data class OrderInfo(
+data class InvoiceResponse(
     /**
-     * Идентификатор заказа для сервиса платежей.
-     * Должен быть уникален в рамках выделенного для приложения service_id
+     * Результат работы API
      */
-    val order_id: String,
+    val error: ResponseError,
+    /**
+     * Идентификатор нового счета
+     */
+    val invoice_id: String
+)
 
+/**
+ * Базовая структура ответа SmartPay API
+ */
+@Serializable
+data class ResponseError(
     /**
-     * Номер заказа для пользователя в произвольном формате, необязательное поле
+     * Код ответа
+     * Если запрос выполнен усрешно, то всегда = '0'
      */
-    val order_number: String,
-
+    val error_code: String,
     /**
-     * Сумма заказа, **должна совпадать** с суммой всех позиций
+     * Техническое описание ошибки
      */
-    val amount: Int,
-
+    val error_description: String,
     /**
-     * Наименование вашего юридического лица
+     * Сообщение для пользователя
      */
-    val purpose: String,
-
-    /**
-     * Описание платежа для отображения пользователю
-     */
-    val description: String,
-
-    /**
-     * Из зявки на подключение платежей, его выдают вместе с ключом
-     */
-    val service_id: String,
-
-    /**
-     * Система налогообложения:
-     * 0 – общая;
-     * 1 – упрощенная, доход;
-     * 2 – упрощенная, доход минус расход;
-     * 3 – единый налог на вмененный доход;
-     * 4 – единый сельскохозяйственный налог;
-     * 5 – патентная система налогообложения
-     */
-    val tax_system: Int,
-
-    /**
-     * Код валюты в формате ISO-4217
-     */
-    val currency: String = "RUB",
-
-    /**
-     * Язык, на котором передаются все текстовые поля в запросе
-     */
-    val language: String = "ru-RU"
+    val user_message: String
 )

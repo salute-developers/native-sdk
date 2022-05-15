@@ -12,12 +12,12 @@ import androidx.lifecycle.lifecycleScope
 import kotlinx.coroutines.flow.collect
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.sberdevices.common.logger.Logger
-import ru.sberdevices.pub.demoapp.ui.smartapp.BuyItems
-import ru.sberdevices.pub.demoapp.ui.smartapp.Clothes
-import ru.sberdevices.pub.demoapp.ui.smartapp.Clothes.BEANIE
-import ru.sberdevices.pub.demoapp.ui.smartapp.Clothes.BOOTS
-import ru.sberdevices.pub.demoapp.ui.smartapp.Clothes.GLOVES
-import ru.sberdevices.pub.demoapp.ui.smartapp.Clothes.JACKET
+import ru.sberdevices.pub.demoapp.ui.smartapp.model.BuyItems
+import ru.sberdevices.pub.demoapp.ui.smartapp.model.Clothes
+import ru.sberdevices.pub.demoapp.ui.smartapp.model.Clothes.BEANIE
+import ru.sberdevices.pub.demoapp.ui.smartapp.model.Clothes.BOOTS
+import ru.sberdevices.pub.demoapp.ui.smartapp.model.Clothes.GLOVES
+import ru.sberdevices.pub.demoapp.ui.smartapp.model.Clothes.JACKET
 import ru.sberdevices.services.pub.demoapp.R
 import ru.sberdevices.services.pub.demoapp.databinding.FragmentSmartappBinding
 
