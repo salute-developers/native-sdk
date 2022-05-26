@@ -54,4 +54,8 @@ dependencies {
     embed project(path: ':public:services:mic_camera_state:api', configuration: 'default')
     embed project(path: ':public:services:mic_camera_state:aidl', configuration: 'default')
     embed project(path: ':public:services:mic_camera_state:impl', configuration: 'default')
+
+    embed project(path: ':public:services:paylib:aidl', configuration: 'default')
+    embed project(path: ':public:services:paylib:api', configuration: 'default')
+    embed project(path: ':public:services:paylib:impl', configuration: 'default')
 }

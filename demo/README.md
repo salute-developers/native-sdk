@@ -9,6 +9,7 @@ You can use Computer Vision libraries as well to get gestures and visual informa
 * **Messaging** is a library that serves as messaging interface between native app and smartapp back-end. The library enables sending events (eg user’s actions) to smartapp back-end. It also allows native app receive messages from back-end (eg user’s voice requests).
 * **mic-camera-state** is a library that provides current state of device camera and microphone (microphone can be disabled and camera can be covered).
 * **cv** и **camera** libraries helps recognize user’s gestures and pose using devices camera. Works only on devices with built-in cameras.
+* **PayLib** is a small library that provides SmartPay service functionality. The library opens payment dialog for invoice id and returns the PayResultCode. For more details see [native app processing](https://developers.sber.ru/docs/ru/va/reference/smartservices/smartpay/processing/nativeapp).
 * Additional libraries: **asserts**, **camera**, **logger** and **binderhelper**
 
 # Documentation

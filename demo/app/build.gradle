@@ -52,18 +52,18 @@ android {
 
 dependencies {
     // SberDevices
-    implementation "ru.sberdevices.smartapp.sdk:asserts:1.0"
-    implementation "ru.sberdevices.smartapp.sdk:logger:1.0"
-
-    implementation "ru.sberdevices.smartapp.sdk:appstate:1.1-alpha"
-    implementation "ru.sberdevices.smartapp.sdk:messaging:1.1-alpha"
-    implementation "ru.sberdevices.smartapp.sdk:mic_camera_state:1.1-alpha"
-
-    implementation "ru.sberdevices.smartapp.sdk:camera:1.1-alpha"
-    implementation "ru.sberdevices.smartapp.sdk:cv:3.1.1"
+//    implementation "ru.sberdevices.smartapp.sdk:asserts:1.0"
+//    implementation "ru.sberdevices.smartapp.sdk:logger:1.0"
+//
+//    implementation "ru.sberdevices.smartapp.sdk:appstate:1.1-alpha"
+//    implementation "ru.sberdevices.smartapp.sdk:messaging:1.1-alpha"
+//    implementation "ru.sberdevices.smartapp.sdk:mic_camera_state:1.1-alpha"
+//
+//    implementation "ru.sberdevices.smartapp.sdk:camera:1.1-alpha"
+//    implementation "ru.sberdevices.smartapp.sdk:cv:3.1.1"
 
     // Uncomment to test local fat aar
-    //implementation files('../fat-aar-all-libs.aar')
+    implementation files('../fat-aar-all-libs.aar')
 
     // Android
     implementation "androidx.appcompat:appcompat:$versions.androidx.appcompat"
@@ -80,9 +80,11 @@ dependencies {
     implementation "com.airbnb.android:lottie:$versions.lottie"
 
     // Third parties
+    implementation "com.google.code.gson:gson:$versions.gson"
     implementation "com.google.protobuf:protobuf-lite:$versions.protobuf_lite"
     implementation "io.insert-koin:koin-android:$versions.koin"
     implementation "io.insert-koin:koin-androidx-viewmodel:$versions.koin"
+
 
     testImplementation "androidx.arch.core:core-testing:$versions.androidx_core_testing"
     testImplementation "io.mockk:mockk:$versions.mockk"

@@ -9,8 +9,7 @@ interface PayLib {
 
     /**
      * Запуск оплаты.
-     * Подробнее об этапах оплаты см. по ссылке:
-     * https://developers.sber.ru/docs/ru/smartservices/smartpay/processing/payment-steps
+     * @see <a href=https://developers.sber.ru/docs/ru/smartservices/smartpay/processing/payment-steps>Этапы оплаты</a>
      *
      * @param invoiceId Идентификатор созданного счета.
      * @return Результат оплаты.

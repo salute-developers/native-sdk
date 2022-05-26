@@ -9,6 +9,9 @@ import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
 import ru.sberdevices.common.assert.Asserts
+import ru.sberdevices.common.binderhelper.BinderHelperFactory2
+import ru.sberdevices.common.binderhelper.BinderHelperFactory2Impl
+import ru.sberdevices.common.coroutines.CoroutineDispatchers
 import ru.sberdevices.common.logger.AndroidLoggerDelegate
 import ru.sberdevices.common.logger.Logger
 import ru.sberdevices.cv.detection.CvApiFactory
@@ -19,6 +22,7 @@ import ru.sberdevices.pub.demoapp.ui.smartapp.ui.SmartAppViewModel
 import ru.sberdevices.pub.demoapp.ui.tabscreen.ui.TabsViewModel
 import ru.sberdevices.services.appstate.AppStateManagerFactory
 import ru.sberdevices.services.pub.demoapp.BuildConfig
+import ru.sberdevices.services.paylib.PayLibFactory
 
 class DemoApplication : Application() {
 
@@ -31,13 +35,16 @@ class DemoApplication : Application() {
 
     private val utilsModule = module {
         single { AppStateManagerFactory.createHolder(context = get()) }
+        single<BinderHelperFactory2> { BinderHelperFactory2Impl() }
     }
 
     private val viewModelModule = module {
         single { SmartAppViewModel(
             messaging = get(),
             appStateHolder = get(),
-            ioCoroutineDispatcher = Dispatchers.IO)
+            ioCoroutineDispatcher = Dispatchers.IO,
+            paylib = get()
+        )
         }
         viewModel { ComputerVisionViewModel(
             cvApiFactory = get(),
@@ -47,7 +54,16 @@ class DemoApplication : Application() {
 
     private val sdkModule = module {
         factory<CvApiFactory> { CvApiFactoryImpl(this@DemoApplication) }
-        factory { MessagingFactory.create(appContext = get()) }
+        factory {
+            MessagingFactory.create(appContext = get())
+        }
+        factory {
+            PayLibFactory(
+                context = androidContext(),
+                coroutineDispatchers = CoroutineDispatchers,
+                binderHelperFactory2 = get()
+            ).create()
+        }
     }
 
     override fun onCreate() {
