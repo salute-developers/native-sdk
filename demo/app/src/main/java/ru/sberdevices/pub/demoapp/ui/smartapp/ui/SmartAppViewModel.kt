@@ -3,6 +3,7 @@ package ru.sberdevices.pub.demoapp.ui.smartapp.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -10,6 +11,7 @@ import kotlinx.coroutines.launch
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
+import ru.sberdevices.assistant.PublicAssistantLib
 import java.time.ZonedDateTime
 import java.time.format.DateTimeFormatter
 import java.util.UUID.randomUUID
@@ -32,6 +34,7 @@ import ru.sberdevices.services.appstate.AppStateHolder
 import ru.sberdevices.services.paylib.PayLib
 import ru.sberdevices.services.paylib.entities.PayResultCode
 import ru.sberdevices.pub.demoapp.ui.smartapp.network.NetworkClient
+import ru.sberdevices.services.assistant.IPublicAssistantService
 
 /**
  * In this example view model gets messages from smartapp backend by [Messaging].
@@ -41,6 +44,7 @@ class SmartAppViewModel(
     messaging: Messaging,
     private val paylib: PayLib,
     private val appStateHolder: AppStateHolder,
+    private val assistant: PublicAssistantLib,
     private val ioCoroutineDispatcher: CoroutineDispatcher
 ) : ViewModel() {
 
@@ -166,6 +170,22 @@ class SmartAppViewModel(
                 order = orderInfo
             )
         )
+    }
+
+    fun stopAssistant() {
+        viewModelScope.launch {
+            // "app_info":
+            assistant.cancelAssistantSpeech(""" {
+                	"projectId":"e6f19374-dc62-4913-8ed5-4a4f726ca05b",
+                	"applicationId":"7f5c127a-ee1e-4f3c-83f7-ed5971196b30",
+                	"appversionId":"97a9b42a-eb5f-4ce7-b0a2-dba8065441d0",
+                	"systemName":"system_ru.sberdevices.pub.demoapp",
+                	"frontendEndpoint":"ru.sberdevices.pub.demoapp",
+                	"frontendType":"APK",
+                    "frontendStateId":"e6f19374-dc62-4913-8ed5-4a4f726ca05b_7f5c127a-ee1e-4f3c-83f7-ed5971196b30_97a9b42a-eb5f-4ce7-b0a2-dba8065441d0"
+                }
+            """.trimIndent())
+        }
     }
 
     private companion object {

@@ -8,6 +8,7 @@ import org.koin.android.ext.koin.androidContext
 import org.koin.androidx.viewmodel.dsl.viewModel
 import org.koin.core.context.startKoin
 import org.koin.dsl.module
+import ru.sberdevices.assistant.PublicAssistantFactory
 import ru.sberdevices.common.assert.Asserts
 import ru.sberdevices.common.binderhelper.BinderHelperFactory2
 import ru.sberdevices.common.binderhelper.BinderHelperFactory2Impl
@@ -43,7 +44,8 @@ class DemoApplication : Application() {
             messaging = get(),
             appStateHolder = get(),
             ioCoroutineDispatcher = Dispatchers.IO,
-            paylib = get()
+            paylib = get(),
+            assistant = get()
         )
         }
         viewModel { ComputerVisionViewModel(
@@ -59,6 +61,13 @@ class DemoApplication : Application() {
         }
         factory {
             PayLibFactory(
+                context = androidContext(),
+                coroutineDispatchers = CoroutineDispatchers,
+                binderHelperFactory2 = get()
+            ).create()
+        }
+        factory {
+            PublicAssistantFactory(
                 context = androidContext(),
                 coroutineDispatchers = CoroutineDispatchers,
                 binderHelperFactory2 = get()

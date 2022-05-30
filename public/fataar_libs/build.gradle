@@ -40,6 +40,10 @@ dependencies {
     embed project(path: ':public:services:appstate:api', configuration: 'default')
     embed project(path: ':public:services:appstate:impl', configuration: 'default')
 
+    embed project(path: ':public:services:assistant:api', configuration: 'default')
+    embed project(path: ':public:services:assistant:aidl', configuration: 'default')
+    embed project(path: ':public:services:assistant:impl', configuration: 'default')
+
     embed project(path: ':public:services:messaging:aidl', configuration: 'default')
     embed project(path: ':public:services:messaging:api', configuration: 'default')
     embed project(path: ':public:services:messaging:impl', configuration: 'default')
