@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'maven-publish'
 }
 
 android {
@@ -29,52 +28,4 @@ task androidSourcesJar(type: Jar) {
     from android.sourceSets.main.kotlin.srcDirs
 }
 
-afterEvaluate {
-    publishing {
-        repositories.add(rootProject.repositories.getByName('OSSRH'))
-
-        publications {
-            mavenCvApi(MavenPublication) {
-                from components.release
-
-                artifact androidSourcesJar
-
-                groupId = publication.pomGroupID + '.cv'
-                artifactId = "api"
-                version = publication.pomCvLibVersion
-
-                pom {
-                    name = "cv:api"
-                    description = 'api for using computer vision'
-                    url = publication.githubUrl
-                    licenses {
-                        license {
-                            name = publication.licenseName
-                            url = publication.licenseUrl
-                        }
-                    }
-                    developers {
-                        developer {
-                            name = 'Dmitry Levshunov'
-                            email = 'Levshunov.D.A@sberbank.ru'
-                        }
-                        developer {
-                            name = 'Irina Karpenko'
-                            email = 'IViKarpenko@sberbank.ru'
-                        }
-                    }
-                    scm {
-                        connection = publication.connectionUrl
-                        developerConnection = publication.connectionUrl
-                        url = publication.githubUrl
-                    }
-                }
-            }
-        }
-    }
-
-    signing {
-        sign publishing.publications.mavenCvApi
-    }
-}
 
