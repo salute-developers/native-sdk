@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'com.kezong.fat-aar'
+    id 'maven-publish'
 }
 
 apply from: "$rootProject.projectDir/android_subproject.gradle"
@@ -19,4 +20,51 @@ dependencies {
     embed project(path: ':public:cv:impl', configuration: 'default')
     embed project(path: ':public:cv:proto', configuration: 'shadow')
     embed project(path: ':public:cv:util', configuration: 'default')
+}
+
+afterEvaluate {
+    publishing {
+        repositories.add(rootProject.repositories.getByName('OSSRH'))
+
+        publications {
+            mavenAllLibs(MavenPublication) {
+                from components.release
+
+                groupId publication.pomGroupID
+                artifactId "cvlibs"
+                version publication.pomMessagingVersion
+
+                pom {
+                    name = "cvlibs"
+                    description = 'cvlibs'
+                    url = publication.githubUrl
+                    licenses {
+                        license {
+                            name = publication.licenseName
+                            url = publication.licenseUrl
+                        }
+                    }
+                    developers {
+                        developer {
+                            name = 'Irina Karpenko'
+                            email = 'IViKarpenko@sberbank.ru'
+                        }
+                        developer {
+                            name = 'Dmitry Levshunov'
+                            email = 'Levshunov.D.A@sberbank.ru'
+                        }
+                    }
+                    scm {
+                        connection = publication.connectionUrl
+                        developerConnection = publication.connectionUrl
+                        url = publication.githubUrl
+                    }
+                }
+            }
+        }
+    }
+
+    signing {
+        sign publishing.publications.mavenAllLibs
+    }
 }

@@ -1,6 +1,7 @@
 plugins {
     id 'com.android.library'
     id 'com.kezong.fat-aar'
+    id 'maven-publish'
 }
 
 apply from: "$rootProject.projectDir/android_subproject.gradle"
@@ -55,4 +56,51 @@ dependencies {
     embed project(path: ':public:services:paylib:aidl', configuration: 'default')
     embed project(path: ':public:services:paylib:api', configuration: 'default')
     embed project(path: ':public:services:paylib:impl', configuration: 'default')
+}
+
+afterEvaluate {
+    publishing {
+        repositories.add(rootProject.repositories.getByName('OSSRH'))
+
+        publications {
+            mavenLibsNoCV(MavenPublication) {
+                from components.release
+
+                groupId publication.pomGroupID
+                artifactId "alllibs-nocv"
+                version publication.pomMessagingVersion
+
+                pom {
+                    name = "alllibs-nocv"
+                    description = 'alllibs-nocv'
+                    url = publication.githubUrl
+                    licenses {
+                        license {
+                            name = publication.licenseName
+                            url = publication.licenseUrl
+                        }
+                    }
+                    developers {
+                        developer {
+                            name = 'Nikolay Pahomov'
+                            email = 'NMPakhomov@sberbank.ru'
+                        }
+                        developer {
+                            name = 'Igor Perminov'
+                            email = 'Perminov.I.Yurye@sberbank.ru'
+                        }
+                    }
+                    scm {
+                        connection = publication.connectionUrl
+                        developerConnection = publication.connectionUrl
+                        url = publication.githubUrl
+                    }
+                }
+            }
+        }
+    }
+
+    signing {
+        sign publishing.publications.mavenLibsNoCV
+    }
 }

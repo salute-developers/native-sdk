@@ -2,7 +2,6 @@ plugins {
     id 'com.android.library'
     id 'kotlin-android'
     id 'kotlin-kapt'
-    id 'maven-publish'
     id "org.jetbrains.dokka" version "1.4.32"
 }
 
@@ -30,54 +29,4 @@ task androidJavadocsJar(type: Jar) {
     dependsOn(dokkaHtml)
     archiveClassifier.set('javadoc')
     from(dokkaHtml.outputDirectory)
-}
-
-afterEvaluate {
-    publishing {
-        repositories.add(rootProject.repositories.getByName('OSSRH'))
-
-        publications {
-            mavenMessagingImpl(MavenPublication) {
-                from components.release
-
-                artifact androidJavadocsJar
-                artifact androidSourcesJar
-
-                groupId publication.pomGroupID
-                artifactId "messaging"
-                version publication.pomMessagingVersion
-
-                pom {
-                    name = "messaging:impl"
-                    description = 'messaging libray serves to connect native apk with smartapp backend'
-                    url = publication.githubUrl
-                    licenses {
-                        license {
-                            name = publication.licenseName
-                            url = publication.licenseUrl
-                        }
-                    }
-                    developers {
-                        developer {
-                            name = 'Igor Perminov'
-                            email = 'Perminov.I.Yurye@sberbank.ru'
-                        }
-                        developer {
-                            name = 'Nikolay Pahomov'
-                            email = 'NMPakhomov@sberbank.ru'
-                        }
-                    }
-                    scm {
-                        connection = publication.connectionUrl
-                        developerConnection = publication.connectionUrl
-                        url = publication.githubUrl
-                    }
-                }
-            }
-        }
-    }
-
-    signing {
-        sign publishing.publications.mavenMessagingImpl
-    }
 }

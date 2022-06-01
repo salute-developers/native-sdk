@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id 'maven-publish'
 }
 
 android {
@@ -18,53 +17,4 @@ task androidSourcesJar(type: Jar) {
     archiveClassifier.set('sources')
     from android.sourceSets.main.java.srcDirs
     from android.sourceSets.main.kotlin.srcDirs
-}
-
-afterEvaluate {
-    publishing {
-        repositories.add(rootProject.repositories.getByName('OSSRH'))
-
-        publications {
-            mavenJavaAsserts(MavenPublication) {
-                from components.release
-
-                artifact androidSourcesJar
-
-                groupId publication.pomGroupID
-                artifactId project.name
-                version publication.pomCommonLibsVersion
-
-                pom {
-                    name = 'asserts'
-                    description = 'asserts is utility library containing some userful asserts'
-                    url = publication.githubUrl
-                    licenses {
-                        license {
-                            name = publication.licenseName
-                            url = publication.licenseUrl
-                        }
-                    }
-                    developers {
-                        developer {
-                            name = 'Igor Perminov'
-                            email = 'Perminov.I.Yurye@sberbank.ru'
-                        }
-                        developer {
-                            name = 'Nikolay Pahomov'
-                            email = 'NMPakhomov@sberbank.ru'
-                        }
-                    }
-                    scm {
-                        connection = publication.connectionUrl
-                        developerConnection = publication.developerConnection
-                        url = publication.githubUrl
-                    }
-                }
-            }
-        }
-    }
-
-    signing {
-        sign publishing.publications.mavenJavaAsserts
-    }
 }

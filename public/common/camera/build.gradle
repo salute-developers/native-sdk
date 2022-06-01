@@ -1,7 +1,6 @@
 plugins {
     id 'com.android.library'
     id 'kotlin-android'
-    id 'maven-publish'
 }
 
 dependencies {
@@ -33,51 +32,3 @@ task androidSourcesJar(type: Jar) {
     from android.sourceSets.main.kotlin.srcDirs
 }
 
-afterEvaluate {
-    publishing {
-        repositories.add(rootProject.repositories.getByName('OSSRH'))
-
-        publications {
-            mavenCommonCamera(MavenPublication) {
-                from components.release
-
-                artifact androidSourcesJar
-
-                groupId publication.pomGroupID
-                artifactId project.name
-                version publication.pomCameraUtilLibVersion
-
-                pom {
-                    name = "common:camera"
-                    description = 'utility for camera usage'
-                    url = publication.githubUrl
-                    licenses {
-                        license {
-                            name = publication.licenseName
-                            url = publication.licenseUrl
-                        }
-                    }
-                    developers {
-                        developer {
-                            name = 'Dmitry Levshunov'
-                            email = 'Levshunov.D.A@sberbank.ru'
-                        }
-                        developer {
-                            name = 'Irina Karpenko'
-                            email = 'IViKarpenko@sberbank.ru'
-                        }
-                    }
-                    scm {
-                        connection = publication.connectionUrl
-                        developerConnection = publication.connectionUrl
-                        url = publication.githubUrl
-                    }
-                }
-            }
-        }
-    }
-
-    signing {
-        sign publishing.publications.mavenCommonCamera
-    }
-}
