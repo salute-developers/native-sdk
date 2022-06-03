@@ -43,6 +43,7 @@ class SmartAppFragment : Fragment() {
         )
 
         binding.buyElephantButton.setOnClickListener { viewModel.addItemsToCartAndPay() }
+        binding.cancelAssistantSpeech.setOnClickListener { viewModel.stopAssistant() }
     }
 
     override fun onResume() {
