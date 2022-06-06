@@ -1,6 +1,6 @@
-# SberDevices Native-App SDK of smart devices
+# Native-App SDK of smart devices
 
-**SmartApp** — is an app that can be launched on smart devices manufactured by SberDevices. SmartApp consists of front-end and back-end part. Front-end part is represented by Android App running on a device, using native libraries we provide.
+**SmartApp** — is an app that can be launched on smart devices. SmartApp consists of front-end and back-end part. Front-end part is represented by Android App running on a device, using native libraries we provide.
 Back-end part can be developed using the [SmartMarket Studio](https://developers.sber.ru/studio/) tools.
 This repository contains SDK that enables use of Salut virtual assistants in your app, enriching UX for your users.
 You can use Computer Vision libraries as well to get gestures and visual information recognition for you app.
@@ -17,5 +17,5 @@ You can use Computer Vision libraries as well to get gestures and visual informa
 Documentation regarding development of Native Apps is available at [developer’s portal](https://developer.sberdevices.ru/docs/ru/methodology/research/nativeapp) (in Russian).
 
 # Support
-Please send your feedback and feature requests to our [issues board](https://github.com/sberdevices/native_smartapp_sdk/issues).
+Please send your feedback and feature requests to our [issues board](https://github.com/salute-developers/native-sdk).
 

@@ -1,5 +1,5 @@
-# SberDevices Star Platform Services Demo app
-**SmartApp** — is an app that can be launched on smart devices manufactured by SberDevices. SmartApp consists of front-end and back-end part. Front-end part is represented by Android App running on a device, using native libraries we provide.
+# Star Platform Services Demo app
+**SmartApp** — is an app that can be launched on smart devices. SmartApp consists of front-end and back-end part. Front-end part is represented by Android App running on a device, using native libraries we provide.
 Back-end part can be developed using the [SmartMarket Studio](https://developers.sber.ru/studio/) tools.
 This repository contains SDK that enables use of Salut virtual assistants in your app, enriching UX for your users.
 You can use Computer Vision libraries as well to get gestures and visual information recognition for you app.
