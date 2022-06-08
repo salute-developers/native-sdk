@@ -30,7 +30,7 @@ internal class ComputerVisionViewModel(
     private val cvApiFactory: CvApiFactory,
     private val ioCoroutineDispatcher: CoroutineDispatcher
 ) : ViewModel() {
-    private val logger by Logger.lazy(javaClass.simpleName)
+    private val logger = Logger.get(javaClass.simpleName)
     private var gesturesJob: Job? = null
     private var humansJob: Job? = null
     private var mirrorJob: Job? = null

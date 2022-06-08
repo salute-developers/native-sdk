@@ -29,7 +29,7 @@ private const val PERMISSION_REQUEST_CODE = 1
 
 class ComputerVisionFragment : Fragment() {
     private lateinit var binding: FragmentComputerVisionBinding
-    private val logger by Logger.lazy(javaClass.simpleName)
+    private val logger = Logger.get(javaClass.simpleName)
 
     @Volatile
     private var mirrorStateJob: Job? = null

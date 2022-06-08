@@ -18,16 +18,19 @@ import ru.sberdevices.common.logger.Logger
 import ru.sberdevices.cv.detection.CvApiFactory
 import ru.sberdevices.cv.detection.CvApiFactoryImpl
 import ru.sberdevices.messaging.MessagingFactory
+import ru.sberdevices.pub.demoapp.repository.GesturesRepository
 import ru.sberdevices.pub.demoapp.ui.cv.ComputerVisionViewModel
 import ru.sberdevices.pub.demoapp.ui.smartapp.ui.SmartAppViewModel
 import ru.sberdevices.pub.demoapp.ui.tabscreen.ui.TabsViewModel
+import ru.sberdevices.sdk.demoapp.ui.gestures.GesturesNavigationMapViewModel
+import ru.sberdevices.sdk.demoapp.ui.gestures.controller.GridController
 import ru.sberdevices.services.appstate.AppStateManagerFactory
-import ru.sberdevices.services.pub.demoapp.BuildConfig
 import ru.sberdevices.services.paylib.PayLibFactory
+import ru.sberdevices.services.pub.demoapp.BuildConfig
 
 class DemoApplication : Application() {
 
-    private val logger by Logger.lazy("SdkDemoApplication")
+    private val logger = Logger.get("SdkDemoApplication")
 
     init {
         Asserts.enabled = BuildConfig.DEBUG
@@ -37,6 +40,7 @@ class DemoApplication : Application() {
     private val utilsModule = module {
         single { AppStateManagerFactory.createHolder(context = get()) }
         single<BinderHelperFactory2> { BinderHelperFactory2Impl() }
+        single { GesturesRepository() }
     }
 
     private val viewModelModule = module {
@@ -48,9 +52,18 @@ class DemoApplication : Application() {
             assistant = get()
         )
         }
-        viewModel { ComputerVisionViewModel(
-            cvApiFactory = get(),
-            ioCoroutineDispatcher = Dispatchers.IO) }
+        viewModel {
+            ComputerVisionViewModel(
+                cvApiFactory = get(),
+                ioCoroutineDispatcher = Dispatchers.IO
+            )
+        }
+        viewModel {
+            GesturesNavigationMapViewModel(
+                gridController = GridController(),
+                gesturesRepository = get()
+            )
+        }
         viewModel { TabsViewModel() }
     }
 

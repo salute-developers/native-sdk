@@ -54,7 +54,7 @@ class SmartAppViewModel(
         isLenient = true
     }
     private val networkClient: NetworkClient = NetworkClient()
-    private val logger by Logger.lazy("SmartAppViewModel")
+    private val logger = Logger.get("SmartAppViewModel")
     private val dateTimeFormatter = DateTimeFormatter.ofPattern("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'")
     private val currentClothes: MutableSet<Clothes> = HashSet()
 

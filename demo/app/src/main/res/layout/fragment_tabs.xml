@@ -45,6 +45,25 @@
         app:layout_constraintStart_toEndOf="@id/servicesTabButton"
         app:layout_constraintTop_toTopOf="@id/servicesTabButton" />
 
+    <TextView
+        android:id="@+id/gesturesTabButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/dp32"
+        android:foreground="@drawable/tab_label_background"
+        android:gravity="top"
+        android:lineSpacingExtra="1sp"
+        android:paddingBottom="@dimen/dp8"
+        android:paddingEnd="@dimen/dp16"
+        android:paddingStart="@dimen/dp16"
+        android:paddingTop="@dimen/dp8"
+        android:text="@string/gestures_tab"
+        android:textAppearance="@style/TextAppearance.SberDevices.Headline"
+        android:textColor="@color/tab_color_selector"
+        android:translationY="-0.28sp"
+        app:layout_constraintStart_toEndOf="@id/cvTabButton"
+        app:layout_constraintTop_toTopOf="@id/servicesTabButton" />
+
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/fragmentContainerView"
         android:layout_width="0dp"

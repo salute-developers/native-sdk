@@ -10,4 +10,5 @@
 
     <color name="white_50">#80FFFFFF</color>
     <color name="white_40">#64FFFFFF</color>
+    <color name="green">#00ff00</color>
 </resources>
