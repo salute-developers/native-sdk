@@ -23,7 +23,7 @@ import ru.sberdevices.services.pub.demoapp.databinding.FragmentSmartappBinding
 
 class SmartAppFragment : Fragment() {
 
-    private val logger by Logger.lazy("SmartAppFragment")
+    private val logger = Logger.get("SmartAppFragment")
 
     private val viewModel: SmartAppViewModel by viewModel()
 

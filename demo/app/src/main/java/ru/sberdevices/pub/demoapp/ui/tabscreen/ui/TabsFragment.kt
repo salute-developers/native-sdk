@@ -14,6 +14,7 @@ import ru.sberdevices.pub.demoapp.ui.cv.ComputerVisionFragment
 import ru.sberdevices.pub.demoapp.ui.smartapp.ui.SmartAppFragment
 import ru.sberdevices.pub.demoapp.ui.tabscreen.util.enterImmersiveMode
 import ru.sberdevices.pub.demoapp.ui.tabscreen.util.exitImmersiveMode
+import ru.sberdevices.sdk.demoapp.ui.gestures.GesturesNavigationMapFragment
 import ru.sberdevices.services.pub.demoapp.R
 import ru.sberdevices.services.pub.demoapp.databinding.FragmentTabsBinding
 
@@ -45,6 +46,7 @@ class TabsFragment : Fragment() {
     private fun setClickListeners() {
         binding.servicesTabButton.setOnClickListener { renderTabSelection(TabUi.SERVICES) }
         binding.cvTabButton.setOnClickListener { renderTabSelection(TabUi.CV) }
+        binding.gesturesTabButton.setOnClickListener { renderTabSelection(TabUi.GESTURES) }
     }
 
     private fun renderTabSelection(selectedTab: TabUi) {
@@ -73,13 +75,15 @@ class TabsFragment : Fragment() {
                 requireActivity().window.enterImmersiveMode()
                 ComputerVisionFragment.newInstance()
             }
+            TabUi.GESTURES -> {
+                requireActivity().window.exitImmersiveMode()
+                GesturesNavigationMapFragment.newInstance()
+            }
         }
         showChildFragment(fragment, R.id.fragmentContainerView)
     }
 
     companion object {
-        fun newInstance() = TabsFragment()
-
         enum class TabUi {
             /**
              * Tab for services demo
@@ -89,7 +93,12 @@ class TabsFragment : Fragment() {
             /**
              * Tab for Computer Vision demo
              */
-            CV
+            CV,
+
+            /**
+             * Tab of gestures navigation demo
+             */
+            GESTURES
         }
     }
 }
