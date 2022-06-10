@@ -27,7 +27,7 @@ afterEvaluate {
         repositories.add(rootProject.repositories.getByName('OSSRH'))
 
         publications {
-            mavenAllLibs(MavenPublication) {
+            mavenCvLibs(MavenPublication) {
                 from components.release
 
                 groupId publication.pomGroupID
@@ -65,6 +65,6 @@ afterEvaluate {
     }
 
     signing {
-        sign publishing.publications.mavenAllLibs
+        sign publishing.publications.mavenCvLibs
     }
 }
