@@ -22,4 +22,7 @@ interface ICvDetectionService {
     oneway void unsubscribeFromIsMirrorDetected(in int bindingId, IMirrorDetectedListener listener) = 180;
     oneway void sendClientCvApiVersion(in int bindingId, String version) = 310;
     oneway void sendDeathListener(in int bindingId, IDeathListener deathListener) = 320;
+    oneway void setPoseCropMode(in int bindingId, boolean cropMode) = 340;
+    oneway void setPoseActiveTracks(in int bindingId, in int[] trackIdsIn) = 360;
+    oneway void setPoseLogsEnable(in int bindingId, boolean logsEnable) = 380;
 }

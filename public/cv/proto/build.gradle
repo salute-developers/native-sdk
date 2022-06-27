@@ -22,8 +22,7 @@ protobuf {
         }
     }
     generateProtoTasks {
-        all().each { task ->
-
+        all().forEach { task ->
             task.builtins {
                 remove java
             }

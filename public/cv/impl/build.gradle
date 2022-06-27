@@ -17,6 +17,7 @@ android {
 
 dependencies {
     implementation project(':public:common:binderhelper:impl')
+    implementation project(':public:common:coroutines')
     implementation project(':public:common:logger')
     implementation project(':public:cv:aidl')
     api project(':public:cv:api')
@@ -26,6 +27,11 @@ dependencies {
 
     implementation "com.google.protobuf:protobuf-lite:$versions.protobuf_lite"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlinxCoroutines"
+
+    testImplementation 'io.mockk:mockk:1.12.4'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.6.2'
+    testImplementation 'junit:junit:4.13.2'
+    testImplementation 'org.jetbrains.kotlin:kotlin-test:1.7.0'
 }
 
 task androidSourcesJar(type: Jar) {
