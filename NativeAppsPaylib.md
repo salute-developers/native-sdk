@@ -108,6 +108,7 @@ private fun formBuyServerActionPayload(cardInfo: CardInfo, orderInfo: OrderInfo)
 
 Результат работы диалога оплаты отображается в параметре response_code. Возможные значения `response_code` смотрите в разделе [Формат результата оплаты](https://developers.sber.ru/docs/ru/va/how-to/monetization/payments/payment-processing).
 
+```
 state: PayDialogFinished
     event!: PAY_DIALOG_FINISHED
     script:
@@ -120,6 +121,7 @@ state: PayDialogFinished
             $jsapi.log("catch(e)" + e.message);
             $reactions.transition("/PaymentStatusError");
         }
+```        
 
 ## Получение статуса платежа
 
