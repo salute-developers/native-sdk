@@ -1,0 +1,55 @@
+public final class ru/sberdevices/services/appstate/AppStateManagerFactory {
+	public static final field INSTANCE Lru/sberdevices/services/appstate/AppStateManagerFactory;
+	public static final fun createHolder (Landroid/content/Context;Lru/sberdevices/common/coroutines/CoroutineDispatchers;)Lru/sberdevices/services/appstate/AppStateHolder;
+	public static synthetic fun createHolder$default (Landroid/content/Context;Lru/sberdevices/common/coroutines/CoroutineDispatchers;ILjava/lang/Object;)Lru/sberdevices/services/appstate/AppStateHolder;
+	public static final fun createRequestManager (Landroid/content/Context;Lru/sberdevices/common/coroutines/CoroutineDispatchers;)Lru/sberdevices/services/appstate/AppStateRequestManager;
+	public static synthetic fun createRequestManager$default (Landroid/content/Context;Lru/sberdevices/common/coroutines/CoroutineDispatchers;ILjava/lang/Object;)Lru/sberdevices/services/appstate/AppStateRequestManager;
+}
+
+public final class ru/sberdevices/services/appstate/description/dsl/AppStateDescriptionDslKt {
+	public static final fun addItem (Lru/sberdevices/services/appstate/description/entity/ItemSelectorBuilder;Lkotlin/jvm/functions/Function1;)V
+	public static final fun appState (Lkotlin/jvm/functions/Function1;)Lru/sberdevices/services/appstate/description/AppStateDescriber;
+	public static final fun deepLinkAction (Ljava/lang/String;)Lru/sberdevices/services/appstate/description/entity/Action;
+	public static final fun selectableItems (Lru/sberdevices/services/appstate/description/entity/AppStateBuilder;Lkotlin/jvm/functions/Function1;)V
+}
+
+public final class ru/sberdevices/services/appstate/description/entity/AppStateBuilder {
+	public fun <init> ()V
+}
+
+public final class ru/sberdevices/services/appstate/description/entity/DeepLinkAction : ru/sberdevices/services/appstate/description/entity/LocalAction {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lru/sberdevices/services/appstate/description/entity/DeepLinkAction;
+	public static synthetic fun copy$default (Lru/sberdevices/services/appstate/description/entity/DeepLinkAction;Ljava/lang/String;ILjava/lang/Object;)Lru/sberdevices/services/appstate/description/entity/DeepLinkAction;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDeepLink ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class ru/sberdevices/services/appstate/description/entity/ItemBuilder {
+	public fun <init> ()V
+	public final fun getAction ()Lru/sberdevices/services/appstate/description/entity/Action;
+	public final fun getId ()Ljava/lang/String;
+	public final fun getNumber ()Ljava/lang/Integer;
+	public final fun getTitle ()Ljava/lang/String;
+	public final fun getVisible ()Z
+	public final fun setAction (Lru/sberdevices/services/appstate/description/entity/Action;)V
+	public final fun setId (Ljava/lang/String;)V
+	public final fun setNumber (Ljava/lang/Integer;)V
+	public final fun setTitle (Ljava/lang/String;)V
+	public final fun setVisible (Z)V
+}
+
+public final class ru/sberdevices/services/appstate/description/entity/ItemSelectorBuilder {
+	public fun <init> ()V
+}
+
+public final class ru/sberdevices/services/appstate/impl/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+

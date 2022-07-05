@@ -1,0 +1,61 @@
+public abstract interface class ru/sberdevices/cv/detection/CvApiFactory {
+	public abstract fun get ()Lru/sberdevices/cv/detection/CvApi;
+}
+
+public final class ru/sberdevices/cv/detection/CvApiFactoryImpl : ru/sberdevices/cv/detection/CvApiFactory {
+	public fun <init> (Landroid/content/Context;)V
+	public fun <init> (Landroid/content/Context;Lru/sberdevices/cv/util/BindingIdStorage;)V
+	public fun <init> (Landroid/content/Context;Lru/sberdevices/cv/util/BindingIdStorage;Lru/sberdevices/common/binderhelper/BinderHelperFactory2;Lru/sberdevices/common/coroutines/CoroutineDispatchers;Lru/sberdevices/cv/detection/DeathListenerFactory;Lru/sberdevices/cv/detection/HumansDetectionListenerFactory;Lru/sberdevices/cv/detection/GestureDetectionListenerFactory;Lru/sberdevices/cv/detection/MirrorDetectedListenerFactory;)V
+	public synthetic fun <init> (Landroid/content/Context;Lru/sberdevices/cv/util/BindingIdStorage;Lru/sberdevices/common/binderhelper/BinderHelperFactory2;Lru/sberdevices/common/coroutines/CoroutineDispatchers;Lru/sberdevices/cv/detection/DeathListenerFactory;Lru/sberdevices/cv/detection/HumansDetectionListenerFactory;Lru/sberdevices/cv/detection/GestureDetectionListenerFactory;Lru/sberdevices/cv/detection/MirrorDetectedListenerFactory;ILkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun get ()Lru/sberdevices/cv/detection/CvApi;
+}
+
+public abstract interface class ru/sberdevices/cv/detection/DeathListenerFactory {
+	public abstract fun getListener ()Lru/sberdevices/cv/IDeathListener;
+}
+
+public final class ru/sberdevices/cv/detection/DeathListenerFactoryImpl : ru/sberdevices/cv/detection/DeathListenerFactory {
+	public fun <init> ()V
+	public fun getListener ()Lru/sberdevices/cv/IDeathListener;
+}
+
+public abstract interface class ru/sberdevices/cv/detection/GestureDetectionListenerFactory {
+	public abstract fun getListener (Lkotlin/jvm/functions/Function1;)Lru/sberdevices/cv/detection/entity/IGestureDetectionListener;
+}
+
+public final class ru/sberdevices/cv/detection/GestureDetectionListenerFactoryImpl : ru/sberdevices/cv/detection/GestureDetectionListenerFactory {
+	public fun <init> ()V
+	public fun getListener (Lkotlin/jvm/functions/Function1;)Lru/sberdevices/cv/detection/entity/IGestureDetectionListener;
+}
+
+public abstract interface class ru/sberdevices/cv/detection/HumansDetectionListenerFactory {
+	public abstract fun getListener (Lkotlin/jvm/functions/Function1;)Lru/sberdevices/cv/detection/entity/IHumansDetectionListener;
+}
+
+public final class ru/sberdevices/cv/detection/HumansDetectionListenerFactoryImpl : ru/sberdevices/cv/detection/HumansDetectionListenerFactory {
+	public fun <init> ()V
+	public fun getListener (Lkotlin/jvm/functions/Function1;)Lru/sberdevices/cv/detection/entity/IHumansDetectionListener;
+}
+
+public abstract interface class ru/sberdevices/cv/detection/MirrorDetectedListenerFactory {
+	public abstract fun getListener (Lkotlin/jvm/functions/Function1;)Lru/sberdevices/cv/detection/entity/IMirrorDetectedListener;
+}
+
+public final class ru/sberdevices/cv/detection/MirrorDetectedListenerFactoryImpl : ru/sberdevices/cv/detection/MirrorDetectedListenerFactory {
+	public fun <init> ()V
+	public fun getListener (Lkotlin/jvm/functions/Function1;)Lru/sberdevices/cv/detection/entity/IMirrorDetectedListener;
+}
+
+public final class ru/sberdevices/cv/detection/util/BytesConvertersKt {
+	public static final fun toGesture ([B)Lru/sberdevices/cv/detection/entity/gesture/Gesture;
+	public static final fun toHumans ([BLjava/util/Set;Lru/sberdevices/cv/detection/entity/humans/Humans;)Lru/sberdevices/cv/detection/entity/humans/Humans;
+}
+
+public final class ru/sberdevices/cv/impl/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field CV_API_VERSION Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+

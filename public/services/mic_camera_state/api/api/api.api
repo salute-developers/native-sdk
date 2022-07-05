@@ -1,0 +1,26 @@
+public abstract interface class ru/sberdevices/services/mic/camera/state/MicCameraStateRepository {
+	public abstract fun dispose ()V
+	public abstract fun getCameraState ()Lkotlinx/coroutines/flow/Flow;
+	public abstract fun getMicState ()Lkotlinx/coroutines/flow/Flow;
+	public abstract fun isCameraCovered ()Lkotlinx/coroutines/flow/Flow;
+	public abstract fun setCameraEnabled (Z)V
+	public abstract fun setMicEnabled (Z)V
+}
+
+public final class ru/sberdevices/services/mic/camera/state/MicCameraStateRepository$State : java/lang/Enum {
+	public static final field DISABLED Lru/sberdevices/services/mic/camera/state/MicCameraStateRepository$State;
+	public static final field ENABLED Lru/sberdevices/services/mic/camera/state/MicCameraStateRepository$State;
+	public static final field NO_DEVICE Lru/sberdevices/services/mic/camera/state/MicCameraStateRepository$State;
+	public static final field UNKNOWN Lru/sberdevices/services/mic/camera/state/MicCameraStateRepository$State;
+	public fun toString ()Ljava/lang/String;
+	public static fun valueOf (Ljava/lang/String;)Lru/sberdevices/services/mic/camera/state/MicCameraStateRepository$State;
+	public static fun values ()[Lru/sberdevices/services/mic/camera/state/MicCameraStateRepository$State;
+}
+
+public final class ru/sberdevices/services/mic/camera/state/api/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
