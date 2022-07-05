@@ -21,6 +21,55 @@ enum class Clothes(val clothes: String) {
     JACKET("куртка")
 }
 
+@Serializable
+enum class NavCommand() {
+
+    /**
+     * Фразы, которые ассистент обрабатывает как "UP":
+     * Вверх, Прокрути вверх, Выше, фразы из корзины
+     */
+    @SerialName("UP")
+    UP,
+
+    /**
+     * Фразы, которые ассистент обрабатывает как "DOWN":
+     * Вниз, Прокрути вниз, Опусти, Ниже
+     */
+    @SerialName("DOWN")
+    DOWN,
+
+    /**
+     * Фразы, которые ассистент обрабатывает как "LEFT"
+     * Влево, В лево, Налево, На лево
+     */
+    @SerialName("LEFT")
+    LEFT,
+
+    /**
+     * Фразы, которые ассистент обрабатывает как "RIGHT"
+     *
+     * Список фраз:
+     * Вправо, В право, Направо, На право
+     */
+    @SerialName("RIGHT")
+    RIGHT,
+
+    /**
+     * Фразы, которые ассистент обрабатывает как "FORWARD"
+     *
+     * Список фраз:
+     * Вперед, Дальше, Далее, Следующая, Следующая страницы, Покажи следующую, Покажи еще
+     */
+    @SerialName("FORWARD")
+    FORWARD
+}
+
+@Serializable
+class NavigationCommand(
+    @SerialName("command")
+    val command: NavCommand
+)
+
 /**
  * Base command from smartapp backend
  */

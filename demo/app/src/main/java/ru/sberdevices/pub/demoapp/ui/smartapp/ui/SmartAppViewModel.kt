@@ -3,7 +3,6 @@ package ru.sberdevices.pub.demoapp.ui.smartapp.ui
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.CoroutineDispatcher
-import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableSharedFlow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.asSharedFlow
@@ -12,9 +11,6 @@ import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
 import ru.sberdevices.assistant.PublicAssistantLib
-import java.time.ZonedDateTime
-import java.time.format.DateTimeFormatter
-import java.util.UUID.randomUUID
 import ru.sberdevices.common.logger.Logger
 import ru.sberdevices.messaging.MessageId
 import ru.sberdevices.messaging.Messaging
@@ -30,11 +26,13 @@ import ru.sberdevices.pub.demoapp.ui.smartapp.model.OrderInfo
 import ru.sberdevices.pub.demoapp.ui.smartapp.model.Quantity
 import ru.sberdevices.pub.demoapp.ui.smartapp.model.ShoppingCartItem
 import ru.sberdevices.pub.demoapp.ui.smartapp.model.WearThisCommand
+import ru.sberdevices.pub.demoapp.ui.smartapp.network.NetworkClient
 import ru.sberdevices.services.appstate.AppStateHolder
 import ru.sberdevices.services.paylib.PayLib
 import ru.sberdevices.services.paylib.entities.PayResultCode
-import ru.sberdevices.pub.demoapp.ui.smartapp.network.NetworkClient
-import ru.sberdevices.services.assistant.IPublicAssistantService
+import java.time.ZonedDateTime
+import java.time.format.DateTimeFormatter
+import java.util.UUID.randomUUID
 
 /**
  * In this example view model gets messages from smartapp backend by [Messaging].

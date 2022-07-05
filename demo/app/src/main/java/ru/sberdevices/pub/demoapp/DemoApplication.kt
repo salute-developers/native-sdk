@@ -61,7 +61,8 @@ class DemoApplication : Application() {
         viewModel {
             GesturesNavigationMapViewModel(
                 gridController = GridController(),
-                gesturesRepository = get()
+                gesturesRepository = get(),
+                messaging = get()
             )
         }
         viewModel { TabsViewModel() }
