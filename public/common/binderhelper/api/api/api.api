@@ -1,0 +1,73 @@
+public abstract interface class ru/sberdevices/common/binderhelper/BinderHelper {
+	public static final field Companion Lru/sberdevices/common/binderhelper/BinderHelper$Companion;
+	public abstract fun connect ()Z
+	public abstract fun disconnect ()V
+	public abstract fun execute (Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun executeWithResult-gIAlu-s (Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getBinderStateFlow ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun hasService ()Z
+	public abstract fun suspendExecute (Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun suspendExecuteWithResult-gIAlu-s (Lkotlin/jvm/functions/Function2;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun tryExecute (Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+	public abstract fun tryExecuteWithResult-IoAF18A (Lkotlin/jvm/functions/Function1;)Ljava/lang/Object;
+}
+
+public final class ru/sberdevices/common/binderhelper/BinderHelper$Companion {
+	public final fun createBindIntent (Ljava/lang/String;Ljava/lang/String;)Landroid/content/Intent;
+}
+
+public final class ru/sberdevices/common/binderhelper/BinderHelperExtKt {
+	public static final fun repeatOnState (Lkotlinx/coroutines/CoroutineScope;Lru/sberdevices/common/binderhelper/BinderHelper;Lru/sberdevices/common/binderhelper/entities/BinderState;Lkotlin/jvm/functions/Function1;)V
+}
+
+public abstract interface class ru/sberdevices/common/binderhelper/BinderHelperFactory2 {
+	public abstract fun create (Landroid/content/Context;Landroid/content/Intent;Ljava/lang/String;Lkotlin/jvm/functions/Function1;)Lru/sberdevices/common/binderhelper/BinderHelper;
+	public abstract fun createCached (Landroid/content/Context;Landroid/content/Intent;Ljava/lang/String;JLkotlin/jvm/functions/Function1;)Lru/sberdevices/common/binderhelper/CachedBinderHelper;
+}
+
+public final class ru/sberdevices/common/binderhelper/BinderHelperFactory2$DefaultImpls {
+	public static synthetic fun create$default (Lru/sberdevices/common/binderhelper/BinderHelperFactory2;Landroid/content/Context;Landroid/content/Intent;Ljava/lang/String;Lkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lru/sberdevices/common/binderhelper/BinderHelper;
+	public static synthetic fun createCached$default (Lru/sberdevices/common/binderhelper/BinderHelperFactory2;Landroid/content/Context;Landroid/content/Intent;Ljava/lang/String;JLkotlin/jvm/functions/Function1;ILjava/lang/Object;)Lru/sberdevices/common/binderhelper/CachedBinderHelper;
+}
+
+public abstract interface class ru/sberdevices/common/binderhelper/CachedBinderHelper : ru/sberdevices/common/binderhelper/BinderHelper {
+	public abstract fun connect ()Z
+	public abstract fun disconnect ()V
+	public abstract fun execute (Lkotlin/jvm/functions/Function1;Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getConnectionCount ()I
+	public abstract fun getHasConnection ()Z
+}
+
+public final class ru/sberdevices/common/binderhelper/api/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public abstract class ru/sberdevices/common/binderhelper/entities/BinderException : java/lang/Exception {
+	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
+	public fun getMessage ()Ljava/lang/String;
+}
+
+public final class ru/sberdevices/common/binderhelper/entities/BinderException$ConnectionNotEstablished : ru/sberdevices/common/binderhelper/entities/BinderException {
+	public fun <init> ()V
+}
+
+public final class ru/sberdevices/common/binderhelper/entities/BinderException$CoroutineContextCancelled : ru/sberdevices/common/binderhelper/entities/BinderException {
+	public fun <init> ()V
+}
+
+public final class ru/sberdevices/common/binderhelper/entities/BinderException$ReceivedNullValue : ru/sberdevices/common/binderhelper/entities/BinderException {
+	public fun <init> ()V
+}
+
+public final class ru/sberdevices/common/binderhelper/entities/BinderState : java/lang/Enum {
+	public static final field BINDING_DIED Lru/sberdevices/common/binderhelper/entities/BinderState;
+	public static final field CONNECTED Lru/sberdevices/common/binderhelper/entities/BinderState;
+	public static final field DISCONNECTED Lru/sberdevices/common/binderhelper/entities/BinderState;
+	public static final field NULL_BINDING Lru/sberdevices/common/binderhelper/entities/BinderState;
+	public static fun valueOf (Ljava/lang/String;)Lru/sberdevices/common/binderhelper/entities/BinderState;
+	public static fun values ()[Lru/sberdevices/common/binderhelper/entities/BinderState;
+}
+

@@ -1,0 +1,96 @@
+public abstract interface class ru/sberdevices/services/appstate/AppStateHolder : ru/sberdevices/services/appstate/AppStateManager {
+	public abstract fun setState (Ljava/lang/String;)V
+}
+
+public abstract interface class ru/sberdevices/services/appstate/AppStateManager {
+	public abstract fun dispose ()V
+}
+
+public abstract interface class ru/sberdevices/services/appstate/AppStateProvider {
+	public abstract fun getState ()Ljava/lang/String;
+}
+
+public abstract interface class ru/sberdevices/services/appstate/AppStateRequestManager : ru/sberdevices/services/appstate/AppStateManager {
+	public abstract fun getAppStateServiceStatusFlow ()Lkotlinx/coroutines/flow/StateFlow;
+	public abstract fun registerBackgroundApp (Ljava/lang/String;)V
+	public abstract fun setProvider (Ljava/lang/String;Lru/sberdevices/services/appstate/AppStateProvider;)V
+	public abstract fun setProvider (Lru/sberdevices/services/appstate/AppStateProvider;)V
+	public abstract fun unregisterBackgroundApp (Ljava/lang/String;)V
+}
+
+public final class ru/sberdevices/services/appstate/api/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public abstract interface class ru/sberdevices/services/appstate/description/AppStateDescriber {
+	public static final field Companion Lru/sberdevices/services/appstate/description/AppStateDescriber$Companion;
+	public static final field KEY_DEEP_LINK Ljava/lang/String;
+	public static final field KEY_ID Ljava/lang/String;
+	public static final field KEY_IGNORED_WORDS Ljava/lang/String;
+	public static final field KEY_ITEMS Ljava/lang/String;
+	public static final field KEY_ITEM_SELECTOR Ljava/lang/String;
+	public static final field KEY_LOCAL_ACTION Ljava/lang/String;
+	public static final field KEY_NUMBER Ljava/lang/String;
+	public static final field KEY_SERVER_ACTION Ljava/lang/String;
+	public static final field KEY_TITLE Ljava/lang/String;
+	public static final field KEY_TYPE Ljava/lang/String;
+	public static final field KEY_VISIBLE Ljava/lang/String;
+	public static final field VALUE_TYPE_DEEP_LINK Ljava/lang/String;
+	public abstract fun describe ()Ljava/lang/String;
+}
+
+public final class ru/sberdevices/services/appstate/description/AppStateDescriber$Companion {
+	public static final field KEY_DEEP_LINK Ljava/lang/String;
+	public static final field KEY_ID Ljava/lang/String;
+	public static final field KEY_IGNORED_WORDS Ljava/lang/String;
+	public static final field KEY_ITEMS Ljava/lang/String;
+	public static final field KEY_ITEM_SELECTOR Ljava/lang/String;
+	public static final field KEY_LOCAL_ACTION Ljava/lang/String;
+	public static final field KEY_NUMBER Ljava/lang/String;
+	public static final field KEY_SERVER_ACTION Ljava/lang/String;
+	public static final field KEY_TITLE Ljava/lang/String;
+	public static final field KEY_TYPE Ljava/lang/String;
+	public static final field KEY_VISIBLE Ljava/lang/String;
+	public static final field VALUE_TYPE_DEEP_LINK Ljava/lang/String;
+}
+
+public abstract interface class ru/sberdevices/services/appstate/description/entity/Action {
+}
+
+public abstract interface class ru/sberdevices/services/appstate/description/entity/AppState {
+	public abstract fun getItemSelector ()Lru/sberdevices/services/appstate/description/entity/ItemSelector;
+}
+
+public abstract interface class ru/sberdevices/services/appstate/description/entity/Item {
+	public abstract fun getAction ()Lru/sberdevices/services/appstate/description/entity/Action;
+	public abstract fun getId ()Ljava/lang/String;
+	public abstract fun getNumber ()I
+	public abstract fun getTitle ()Ljava/lang/String;
+	public abstract fun getVisible ()Z
+}
+
+public abstract interface class ru/sberdevices/services/appstate/description/entity/ItemSelector {
+	public abstract fun getIgnoredWords ()Ljava/util/List;
+	public abstract fun getItems ()Ljava/util/List;
+}
+
+public abstract interface class ru/sberdevices/services/appstate/description/entity/LocalAction : ru/sberdevices/services/appstate/description/entity/Action {
+}
+
+public abstract interface class ru/sberdevices/services/appstate/description/entity/ServerAction : ru/sberdevices/services/appstate/description/entity/Action {
+}
+
+public final class ru/sberdevices/services/appstate/entities/AppStateServiceStatus : java/lang/Enum {
+	public static final field READY Lru/sberdevices/services/appstate/entities/AppStateServiceStatus;
+	public static final field UNREADY Lru/sberdevices/services/appstate/entities/AppStateServiceStatus;
+	public static fun valueOf (Ljava/lang/String;)Lru/sberdevices/services/appstate/entities/AppStateServiceStatus;
+	public static fun values ()[Lru/sberdevices/services/appstate/entities/AppStateServiceStatus;
+}
+
+public final class ru/sberdevices/services/appstate/exceptions/AppStateManagerAlreadyExistsException : java/lang/RuntimeException {
+	public fun <init> ()V
+}
+

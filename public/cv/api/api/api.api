@@ -1,0 +1,42 @@
+public final class ru/sberdevices/cv/api/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field CV_API_VERSION Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public abstract interface class ru/sberdevices/cv/detection/CallbackCvDetectionApiExtension {
+	public abstract fun close ()V
+	public abstract fun subscribeForGestures (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun subscribeForHumans (Ljava/util/Set;Lkotlin/jvm/functions/Function1;)V
+	public abstract fun subscribeForMirrorState (Lkotlin/jvm/functions/Function1;)V
+	public abstract fun unsubscribeFromGestures ()V
+	public abstract fun unsubscribeFromHumans ()V
+	public abstract fun unsubscribeFromMirrorState ()V
+}
+
+public final class ru/sberdevices/cv/detection/CallbackCvDetectionApiExtensionImpl : ru/sberdevices/cv/detection/CallbackCvDetectionApiExtension {
+	public fun <init> (Lru/sberdevices/cv/detection/CvApi;)V
+	public fun close ()V
+	public fun subscribeForGestures (Lkotlin/jvm/functions/Function1;)V
+	public fun subscribeForHumans (Ljava/util/Set;Lkotlin/jvm/functions/Function1;)V
+	public fun subscribeForMirrorState (Lkotlin/jvm/functions/Function1;)V
+	public fun unsubscribeFromGestures ()V
+	public fun unsubscribeFromHumans ()V
+	public fun unsubscribeFromMirrorState ()V
+}
+
+public abstract interface class ru/sberdevices/cv/detection/CvApi : java/lang/AutoCloseable {
+	public abstract fun close ()V
+	public abstract fun getServiceInfo (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getVersion (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun isAvailableOnDevice ()Z
+	public abstract fun observeGestures ()Lkotlinx/coroutines/flow/Flow;
+	public abstract fun observeHumans (Ljava/util/Set;)Lkotlinx/coroutines/flow/Flow;
+	public abstract fun observeIsMirrorDetected ()Lkotlinx/coroutines/flow/Flow;
+	public abstract fun setPoseActiveTracks ([ILkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun setPoseCropMode (ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun setPoseLogsEnable (ZLkotlin/coroutines/Continuation;)Ljava/lang/Object;
+}
+

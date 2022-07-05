@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id "org.jetbrains.dokka" version "1.4.32"
+    id 'org.jetbrains.kotlinx.binary-compatibility-validator' version '0.10.1'
 }
 
 apply from: "$rootProject.projectDir/android_subproject.gradle"

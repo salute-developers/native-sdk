@@ -1,0 +1,60 @@
+public final class ru/sberdevices/messaging/MessageId {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lru/sberdevices/messaging/MessageId;
+	public static synthetic fun copy$default (Lru/sberdevices/messaging/MessageId;Ljava/lang/String;ILjava/lang/Object;)Lru/sberdevices/messaging/MessageId;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getValue ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class ru/sberdevices/messaging/MessageName : java/lang/Enum {
+	public static final field CLOSE_APP Lru/sberdevices/messaging/MessageName;
+	public static final field GET_IHUB_TOKEN Lru/sberdevices/messaging/MessageName;
+	public static final field HEARTBEAT Lru/sberdevices/messaging/MessageName;
+	public static final field RUN_APP Lru/sberdevices/messaging/MessageName;
+	public static final field RUN_APP_DEEPLINK Lru/sberdevices/messaging/MessageName;
+	public static final field SERVER_ACTION Lru/sberdevices/messaging/MessageName;
+	public static final field UPDATE_IP Lru/sberdevices/messaging/MessageName;
+	public static fun valueOf (Ljava/lang/String;)Lru/sberdevices/messaging/MessageName;
+	public static fun values ()[Lru/sberdevices/messaging/MessageName;
+}
+
+public abstract interface class ru/sberdevices/messaging/Messaging {
+	public abstract fun addListener (Lru/sberdevices/messaging/Messaging$Listener;)V
+	public abstract fun dispose ()V
+	public abstract fun removeListener (Lru/sberdevices/messaging/Messaging$Listener;)V
+	public abstract fun sendAction (Lru/sberdevices/messaging/MessageName;Lru/sberdevices/messaging/Payload;)Lru/sberdevices/messaging/MessageId;
+	public abstract fun sendAction (Lru/sberdevices/messaging/MessageName;Lru/sberdevices/messaging/Payload;Ljava/lang/String;)Lru/sberdevices/messaging/MessageId;
+	public abstract fun sendText (Ljava/lang/String;)V
+}
+
+public abstract interface class ru/sberdevices/messaging/Messaging$Listener {
+	public abstract fun onError (Lru/sberdevices/messaging/MessageId;Ljava/lang/Throwable;)V
+	public abstract fun onMessage (Lru/sberdevices/messaging/MessageId;Lru/sberdevices/messaging/Payload;)V
+	public abstract fun onNavigationCommand (Lru/sberdevices/messaging/Payload;)V
+}
+
+public final class ru/sberdevices/messaging/Messaging$Listener$DefaultImpls {
+	public static fun onNavigationCommand (Lru/sberdevices/messaging/Messaging$Listener;Lru/sberdevices/messaging/Payload;)V
+}
+
+public final class ru/sberdevices/messaging/Payload {
+	public fun <init> (Ljava/lang/String;)V
+	public final fun component1 ()Ljava/lang/String;
+	public final fun copy (Ljava/lang/String;)Lru/sberdevices/messaging/Payload;
+	public static synthetic fun copy$default (Lru/sberdevices/messaging/Payload;Ljava/lang/String;ILjava/lang/Object;)Lru/sberdevices/messaging/Payload;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getData ()Ljava/lang/String;
+	public fun hashCode ()I
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class ru/sberdevices/services/messaging/api/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+

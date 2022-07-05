@@ -1,0 +1,71 @@
+public abstract interface class ru/sberdevices/camera/controller/CameraController {
+	public abstract fun getCameraInfoProvider ()Lkotlinx/coroutines/flow/Flow;
+	public abstract fun release ()V
+	public abstract fun snapshot (Lru/sberdevices/camera/factories/snapshot/SnapshotCapturedCallback;)V
+	public abstract fun start (Ljava/lang/String;Ljava/util/List;)V
+	public abstract fun stop ()V
+}
+
+public final class ru/sberdevices/camera/controller/CameraControllerFactory {
+	public static final field INSTANCE Lru/sberdevices/camera/controller/CameraControllerFactory;
+	public static final fun create (Landroid/content/Context;Lru/sberdevices/services/mic/camera/state/MicCameraStateRepository;Lru/sberdevices/camera/utils/CameraExceptionHandler;)Lru/sberdevices/camera/controller/CameraController;
+	public static synthetic fun create$default (Landroid/content/Context;Lru/sberdevices/services/mic/camera/state/MicCameraStateRepository;Lru/sberdevices/camera/utils/CameraExceptionHandler;ILjava/lang/Object;)Lru/sberdevices/camera/controller/CameraController;
+}
+
+public abstract interface class ru/sberdevices/camera/factories/camera/CameraInfoProvider {
+	public abstract fun getBestSize (Landroid/util/Size;)Landroid/util/Size;
+	public abstract fun getJpegOrientation ()I
+	public abstract fun getMaxSize ()Landroid/util/Size;
+	public abstract fun getSensorOrientation ()I
+}
+
+public abstract interface class ru/sberdevices/camera/factories/camera/CameraOpener {
+	public abstract fun openCamera (Ljava/lang/String;)V
+}
+
+public abstract interface class ru/sberdevices/camera/factories/snapshot/SnapshotCapturedCallback {
+	public abstract fun onCaptured (Landroid/graphics/Bitmap;)V
+}
+
+public abstract interface class ru/sberdevices/camera/utils/CameraCoveredListener {
+	public abstract fun onCameraCovered ()V
+	public abstract fun onCameraUncovered ()V
+}
+
+public abstract interface class ru/sberdevices/camera/utils/CameraCoveredReceiver {
+	public abstract fun register ()V
+	public abstract fun unregister ()V
+}
+
+public final class ru/sberdevices/camera/utils/CameraCoveredReceiverImpl : ru/sberdevices/camera/utils/CameraCoveredReceiver {
+	public fun <init> (Lkotlinx/coroutines/flow/Flow;Lru/sberdevices/camera/utils/CameraCoveredListener;)V
+	public fun register ()V
+	public fun unregister ()V
+}
+
+public abstract interface class ru/sberdevices/camera/utils/CameraExceptionHandler {
+	public abstract fun cameraException (Ljava/lang/Exception;)V
+	public abstract fun sessionException (Ljava/lang/Exception;)V
+}
+
+public abstract interface class ru/sberdevices/camera/view/CameraView {
+	public static final field Companion Lru/sberdevices/camera/view/CameraView$Companion;
+	public static final field DEFAULT_CAMERA_ID Ljava/lang/String;
+}
+
+public final class ru/sberdevices/camera/view/CameraView$Companion {
+	public static final field DEFAULT_CAMERA_ID Ljava/lang/String;
+}
+
+public final class ru/sberdevices/camera/view/CameraViewFactory {
+	public static final field INSTANCE Lru/sberdevices/camera/view/CameraViewFactory;
+	public final fun create (Landroid/view/SurfaceView;Lru/sberdevices/camera/controller/CameraController;)Lru/sberdevices/camera/view/CameraView;
+}
+
+public final class ru/sberdevices/common/camera/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
