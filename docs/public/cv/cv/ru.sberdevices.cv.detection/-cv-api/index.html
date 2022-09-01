@@ -1,0 +1,211 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>CvApi</title>
+<link href="../../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+const savedDarkMode = storage ? JSON.parse(storage) : false
+if(savedDarkMode === true){
+    document.getElementsByTagName("html")[0].classList.add("theme-dark")
+}</script>
+<script type="text/javascript" src="../../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../../scripts/prism.js" async></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../../../index.html">
+<span>native_smartapp_sdk</span>            </a>    </div>
+    <div>
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="cv::ru.sberdevices.cv.detection/CvApi///PointingToDeclaration//-64357846">
+  <div class="breadcrumbs"><a href="../../index.html">cv</a><span class="delimiter">/</span><a href="../index.html">ru.sberdevices.cv.detection</a><span class="delimiter">/</span><a href="index.html">CvApi</a></div>
+  <div class="cover ">
+    <h1 class="cover"><span>Cv</span><wbr><span><span>Api</span></span></h1>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":public:cv:cv:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">interface </span><a href="index.html">CvApi</a> : <a href="https://developer.android.com/reference/kotlin/java/lang/AutoCloseable.html">AutoCloseable</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><p class="paragraph">This interface allows to observe computer vision detections. There is information about face and body points (face landmarks and pose), body segmentation (mask), face and body bounding boxes, gestures, mirror presence. Moreover, client is able to get api version used by client and complete data on versions, hashs and metadata used by service.</p><p class="paragraph">The interface allows client cooperate with computer vision Android service process by aidl IPC with <a href="https://developer.android.com/reference/kotlin/android/os/Binder.html">android.os.Binder</a>. Api handles DeadObjectException. In case of service crashes api binding restores service connections and observed detections flows. Service connection is defended with dangerous level permission ru.sberdevices.permission.COMPUTER_VISION_SENSITIVE. When api is no longer needed, it should be closed with close() method call.</p></div></div>
+  </div>
+  <div class="tabbedcontent">
+    <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="Functions">Functions</button></div>
+    <div class="tabs-section-body">
+      <h2 class="">Functions</h2>
+      <div class="table" data-togglable="Functions"><a data-name="-922009990%2FFunctions%2F-64357846" anchor-label="close" id="-922009990%2FFunctions%2F-64357846" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release"></a>
+        <div class="table-row" data-filterable-current=":public:cv:cv:dokkaHtmlPartial/release" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="close.html"><span><span>close</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-922009990%2FFunctions%2F-64357846"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":public:cv:cv:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">override </span><span class="token keyword">fun </span><a href="close.html"><span class="token function">close</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1777214853%2FFunctions%2F-64357846" anchor-label="getServiceInfo" id="-1777214853%2FFunctions%2F-64357846" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release"></a>
+        <div class="table-row" data-filterable-current=":public:cv:cv:dokkaHtmlPartial/release" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="get-service-info.html"><span>get</span><wbr><span>Service</span><wbr><span><span>Info</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1777214853%2FFunctions%2F-64357846"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":public:cv:cv:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-service-info.html"><span class="token function">getServiceInfo</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="ru.sberdevices.cv/ServiceInfo///PointingToDeclaration/">ServiceInfo</span><span class="token operator">?</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-844604218%2FFunctions%2F-64357846" anchor-label="getVersion" id="-844604218%2FFunctions%2F-64357846" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release"></a>
+        <div class="table-row" data-filterable-current=":public:cv:cv:dokkaHtmlPartial/release" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="get-version.html"><span>get</span><wbr><span><span>Version</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-844604218%2FFunctions%2F-64357846"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":public:cv:cv:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="get-version.html"><span class="token function">getVersion</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token operator">?</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1439803330%2FFunctions%2F-64357846" anchor-label="isAvailableOnDevice" id="-1439803330%2FFunctions%2F-64357846" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release"></a>
+        <div class="table-row" data-filterable-current=":public:cv:cv:dokkaHtmlPartial/release" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="is-available-on-device.html"><span>is</span><wbr><span>Available</span><wbr><span>On</span><wbr><span><span>Device</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1439803330%2FFunctions%2F-64357846"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":public:cv:cv:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="is-available-on-device.html"><span class="token function">isAvailableOnDevice</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div><div class="brief "><p class="paragraph">Method provides information whether service fulfilling cv api is present and enabled on device. Client is responsible for gracefully adapting its ui so that it can handle unavailability of cv api</p></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="615421036%2FFunctions%2F-64357846" anchor-label="observeGestures" id="615421036%2FFunctions%2F-64357846" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release"></a>
+        <div class="table-row" data-filterable-current=":public:cv:cv:dokkaHtmlPartial/release" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="observe-gestures.html"><span>observe</span><wbr><span><span>Gestures</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="615421036%2FFunctions%2F-64357846"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":public:cv:cv:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="observe-gestures.html"><span class="token function">observeGestures</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="ru.sberdevices.cv.detection.entity.gesture/Gesture///PointingToDeclaration/">Gesture</span><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="2087219908%2FFunctions%2F-64357846" anchor-label="observeHumans" id="2087219908%2FFunctions%2F-64357846" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release"></a>
+        <div class="table-row" data-filterable-current=":public:cv:cv:dokkaHtmlPartial/release" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="observe-humans.html"><span>observe</span><wbr><span><span>Humans</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="2087219908%2FFunctions%2F-64357846"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":public:cv:cv:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="observe-humans.html"><span class="token function">observeHumans</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">aspects<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin.collections/-set/index.html">Set</a><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="ru.sberdevices.cv.detection.entity.humans/HumansDetectionAspect///PointingToDeclaration/">HumansDetectionAspect</span><span class="token operator">&gt;</span></span></span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span><span class="token keyword"></span><span data-unresolved-link="ru.sberdevices.cv.detection.entity.humans/Humans///PointingToDeclaration/">Humans</span><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="713500587%2FFunctions%2F-64357846" anchor-label="observeIsMirrorDetected" id="713500587%2FFunctions%2F-64357846" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release"></a>
+        <div class="table-row" data-filterable-current=":public:cv:cv:dokkaHtmlPartial/release" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="observe-is-mirror-detected.html"><span>observe</span><wbr><span>Is</span><wbr><span>Mirror</span><wbr><span><span>Detected</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="713500587%2FFunctions%2F-64357846"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":public:cv:cv:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="observe-is-mirror-detected.html"><span class="token function">observeIsMirrorDetected</span></a><span class="token punctuation">(</span><span class="token punctuation">)</span><span class="token operator">: </span><span data-unresolved-link="kotlinx.coroutines.flow/Flow///PointingToDeclaration/">Flow</span><span class="token operator">&lt;</span><span class="token keyword"></span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a><span class="token operator">&gt;</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="1283092201%2FFunctions%2F-64357846" anchor-label="setPoseActiveTracks" id="1283092201%2FFunctions%2F-64357846" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release"></a>
+        <div class="table-row" data-filterable-current=":public:cv:cv:dokkaHtmlPartial/release" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="set-pose-active-tracks.html"><span>set</span><wbr><span>Pose</span><wbr><span>Active</span><wbr><span><span>Tracks</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="1283092201%2FFunctions%2F-64357846"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":public:cv:cv:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-pose-active-tracks.html"><span class="token function">setPoseActiveTracks</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">trackIdsIn<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-int-array/index.html">IntArray</a><span class="token operator">?</span></span></span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-2007733583%2FFunctions%2F-64357846" anchor-label="setPoseCropMode" id="-2007733583%2FFunctions%2F-64357846" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release"></a>
+        <div class="table-row" data-filterable-current=":public:cv:cv:dokkaHtmlPartial/release" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="set-pose-crop-mode.html"><span>set</span><wbr><span>Pose</span><wbr><span>Crop</span><wbr><span><span>Mode</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-2007733583%2FFunctions%2F-64357846"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":public:cv:cv:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-pose-crop-mode.html"><span class="token function">setPoseCropMode</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">cropMode<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+<a data-name="-1821750894%2FFunctions%2F-64357846" anchor-label="setPoseLogsEnable" id="-1821750894%2FFunctions%2F-64357846" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release"></a>
+        <div class="table-row" data-filterable-current=":public:cv:cv:dokkaHtmlPartial/release" data-filterable-set=":public:cv:cv:dokkaHtmlPartial/release">
+          <div class="main-subrow keyValue ">
+            <div class=""><span class="inline-flex">
+                <div><a href="set-pose-logs-enable.html"><span>set</span><wbr><span>Pose</span><wbr><span>Logs</span><wbr><span><span>Enable</span></span></a></div>
+<span class="anchor-wrapper"><span class="anchor-icon" pointing-to="-1821750894%2FFunctions%2F-64357846"></span>
+                  <div class="copy-popup-wrapper "><span class="copy-popup-icon"></span><span>Link copied to clipboard</span></div>
+                </span></span></div>
+            <div>
+              <div class="title">
+                <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-depenent-content" data-active="" data-togglable=":public:cv:cv:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword">suspend </span><span class="token keyword">fun </span><a href="set-pose-logs-enable.html"><span class="token function">setPoseLogsEnable</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">logsEnable<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-boolean/index.html">Boolean</a></span></span><span class="token punctuation">)</span><span class="top-right-position"><span class="copy-icon"></span><div class="copy-popup-wrapper popup-to-left"><span class="copy-popup-icon"></span><span>Content copied to clipboard</span></div></span></div></div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2022 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+
