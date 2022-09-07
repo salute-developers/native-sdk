@@ -37,31 +37,31 @@ dependencies {
     embed project(path: ':public:common:coroutines', configuration: 'default')
     embed project(path: ':public:common:logger', configuration: 'default')
 
+    embed project(path: ':public:cv:api_cv', configuration: 'default')
     embed project(path: ':public:cv:aidl', configuration: 'default')
-    embed project(path: ':public:cv:api', configuration: 'default')
     embed project(path: ':public:cv:entity', configuration: 'default')
     embed project(path: ':public:cv:impl', configuration: 'default')
     embed project(path: ':public:cv:proto', configuration: 'shadow')
     embed project(path: ':public:cv:util', configuration: 'default')
 
     embed project(path: ':public:services:appstate:aidl', configuration: 'default')
-    embed project(path: ':public:services:appstate:api', configuration: 'default')
+    embed project(path: ':public:services:appstate:api_appstate', configuration: 'default')
     embed project(path: ':public:services:appstate:impl', configuration: 'default')
 
     embed project(path: ':public:services:assistant:aidl', configuration: 'default')
-    embed project(path: ':public:services:assistant:api', configuration: 'default')
+    embed project(path: ':public:services:assistant:api_assistant', configuration: 'default')
     embed project(path: ':public:services:assistant:impl', configuration: 'default')
 
     embed project(path: ':public:services:messaging:aidl', configuration: 'default')
-    embed project(path: ':public:services:messaging:api', configuration: 'default')
+    embed project(path: ':public:services:messaging:api_messaging', configuration: 'default')
     embed project(path: ':public:services:messaging:impl', configuration: 'default')
 
     embed project(path: ':public:services:mic_camera_state:aidl', configuration: 'default')
-    embed project(path: ':public:services:mic_camera_state:api', configuration: 'default')
+    embed project(path: ':public:services:mic_camera_state:api_mic_camera_state', configuration: 'default')
     embed project(path: ':public:services:mic_camera_state:impl', configuration: 'default')
 
     embed project(path: ':public:services:paylib:aidl', configuration: 'default')
-    embed project(path: ':public:services:paylib:api', configuration: 'default')
+    embed project(path: ':public:services:paylib:api_paylib', configuration: 'default')
     embed project(path: ':public:services:paylib:impl', configuration: 'default')
 }
 

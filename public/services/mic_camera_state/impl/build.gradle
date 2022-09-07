@@ -5,7 +5,7 @@ plugins {
 }
 
 dependencies {
-    api project(':public:services:mic_camera_state:api')
+    api project(':public:services:mic_camera_state:api_mic_camera_state')
 
     implementation project(':public:services:mic_camera_state:aidl')
 

@@ -3,6 +3,7 @@ plugins {
     id 'kotlin-android'
     id 'kotlin-kapt'
     id 'org.jetbrains.kotlinx.binary-compatibility-validator' version '0.10.1'
+    id 'org.jetbrains.dokka'
 }
 
 android {

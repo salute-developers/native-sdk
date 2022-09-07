@@ -15,7 +15,7 @@ fataar {
 
 dependencies {
     embed project(path: ':public:cv:aidl', configuration: 'default')
-    embed project(path: ':public:cv:api', configuration: 'default')
+    embed project(path: ':public:cv:api_cv', configuration: 'default')
     embed project(path: ':public:cv:entity', configuration: 'default')
     embed project(path: ':public:cv:impl', configuration: 'default')
     embed project(path: ':public:cv:proto', configuration: 'shadow')

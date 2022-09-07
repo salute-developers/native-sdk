@@ -32,3 +32,10 @@ include ':public:common:asserts',
         ':public:services:paylib:aidl',
         ':public:services:paylib:api',
         ':public:services:paylib:impl'
+
+project(':public:cv:api').name = "api_cv"
+project(':public:services:appstate:api').name = "api_appstate"
+project(':public:services:assistant:api').name = "api_assistant"
+project(':public:services:messaging:api').name = "api_messaging"
+project(':public:services:mic_camera_state:api').name = "api_mic_camera_state"
+project(':public:services:paylib:api').name = "api_paylib"

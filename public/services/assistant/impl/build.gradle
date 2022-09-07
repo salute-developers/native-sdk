@@ -7,7 +7,7 @@ plugins {
 apply from: "$rootProject.projectDir/android_subproject.gradle"
 
 dependencies {
-    api project(':public:services:assistant:api')
+    api project(':public:services:assistant:api_assistant')
     implementation project(':public:services:assistant:aidl')
 
     implementation project(':public:common:binderhelper:impl')
