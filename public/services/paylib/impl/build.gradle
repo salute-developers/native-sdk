@@ -7,7 +7,7 @@ plugins {
 apply from: "$rootProject.projectDir/android_subproject.gradle"
 
 dependencies {
-    api project(':public:services:paylib:api')
+    api project(':public:services:paylib:api_paylib')
     implementation project(':public:services:paylib:aidl')
 
     implementation project(':public:common:asserts')

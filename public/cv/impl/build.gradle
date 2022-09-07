@@ -21,7 +21,7 @@ dependencies {
     implementation project(':public:common:coroutines')
     implementation project(':public:common:logger')
     implementation project(':public:cv:aidl')
-    api project(':public:cv:api')
+    api project(':public:cv:api_cv')
     api project(':public:cv:entity')
     api project(':public:cv:util')
     implementation project(path: ':public:cv:proto', configuration: 'shadow')
