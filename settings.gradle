@@ -13,9 +13,9 @@ include ':public:common:asserts',
         ':public:cv:proto',
         ':public:cv:util',
 
-        ':public:fataar_all_libs',
+        ':public:fataar_common_libs',
         ':public:fataar_cv',
-        ':public:fataar_libs',
+        ':public:fataar_sdk',
 
         ':public:services:assistant:aidl',
         ':public:services:assistant:api',
