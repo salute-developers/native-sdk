@@ -1,6 +1,6 @@
-public final class ru/sberdevices/assistant/PublicAssistantFactory {
+public final class ru/sberdevices/services/assistant/PublicAssistantFactory {
 	public fun <init> (Landroid/content/Context;Lru/sberdevices/common/coroutines/CoroutineDispatchers;Lru/sberdevices/common/binderhelper/BinderHelperFactory2;)V
-	public final fun create ()Lru/sberdevices/assistant/PublicAssistantLib;
+	public final fun create ()Lru/sberdevices/services/assistant/PublicAssistantLib;
 }
 
 public final class ru/sberdevices/services/assistant/impl/BuildConfig {

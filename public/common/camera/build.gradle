@@ -5,6 +5,8 @@ plugins {
     id 'org.jetbrains.dokka'
 }
 
+apply from: "$rootProject.projectDir/android_subproject.gradle"
+
 dependencies {
     implementation project(':public:common:logger')
     implementation project(':public:services:mic_camera_state:api_mic_camera_state')

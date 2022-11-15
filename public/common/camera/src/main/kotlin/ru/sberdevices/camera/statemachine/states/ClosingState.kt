@@ -10,7 +10,7 @@ import ru.sberdevices.camera.utils.exhaustive
 internal class ClosingState(
     private val machine: CameraStateMachine,
     private val camera: Camera,
-    @VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
+    @get:VisibleForTesting(otherwise = VisibleForTesting.PRIVATE)
     var restart: Boolean
 ) : CameraState() {
 

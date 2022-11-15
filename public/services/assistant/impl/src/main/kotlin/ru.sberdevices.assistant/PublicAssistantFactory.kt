@@ -1,4 +1,4 @@
-package ru.sberdevices.assistant
+package ru.sberdevices.services.assistant
 
 import android.content.Context
 import ru.sberdevices.common.binderhelper.BinderHelper
@@ -27,7 +27,7 @@ class PublicAssistantFactory(
     private fun getHelper(): CachedBinderHelper<IPublicAssistantService> {
         val bindIntent = BinderHelper.createBindIntent(
             packageName = "ru.sberdevices.services",
-            className = "ru.sberdevices.services.assistant.AssistantService"
+            className = "ru.sberdevices.services.assistant.PublicAssistantService"
         )
 
         return binderHelperFactory2.createCached(context, bindIntent) {

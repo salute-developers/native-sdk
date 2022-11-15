@@ -10,7 +10,7 @@ fataar {
     /**
      * If transitive is true, we embed not only our libs, but also their dependencies. It may be needed for unity build
      */
-    transitive = true
+    transitive = false
 }
 
 afterEvaluate {
@@ -22,7 +22,7 @@ afterEvaluate {
                 copy {
                     from outputFile
                     into "$rootProject.projectDir/demo"
-                    rename outputFile.name, "fat-aar-libs.aar"
+                    rename outputFile.name, "sdk.aar"
                 }
             }
         }
@@ -30,12 +30,7 @@ afterEvaluate {
 }
 
 dependencies {
-    embed project(path: ':public:common:asserts', configuration: 'default')
-    embed project(path: ':public:common:binderhelper:api', configuration: 'default')
-    embed project(path: ':public:common:binderhelper:impl', configuration: 'default')
-    embed project(path: ':public:common:camera', configuration: 'default')
-    embed project(path: ':public:common:coroutines', configuration: 'default')
-    embed project(path: ':public:common:logger', configuration: 'default')
+    api "ru.sberdevices.smartapp:common_libs:1.0.1"
 
     embed project(path: ':public:services:appstate:aidl', configuration: 'default')
     embed project(path: ':public:services:appstate:api_appstate', configuration: 'default')
@@ -63,16 +58,16 @@ afterEvaluate {
         repositories.add(rootProject.repositories.getByName('OSSRH'))
 
         publications {
-            mavenLibsNoCV(MavenPublication) {
-                from components.release
+            mavenLibsSdk(MavenPublication) {
+                artifact file("build/outputs/aar/fataar_sdk-release.aar")
 
-                groupId publication.pomGroupID
-                artifactId "alllibs-nocv"
-                version publication.pomMessagingVersion
+                groupId "ru.sberdevices.smartapp"
+                artifactId "sdk"
+                version publication.pomSdkVersion
 
                 pom {
-                    name = "alllibs-nocv"
-                    description = 'alllibs-nocv'
+                    name = "sdk"
+                    description = 'sdk'
                     url = publication.githubUrl
                     licenses {
                         license {
@@ -96,11 +91,23 @@ afterEvaluate {
                         url = publication.githubUrl
                     }
                 }
+                pom.withXml {
+                    def dependenciesNode = asNode().appendNode('dependencies')
+
+                    // Iterate over the compile dependencies (we don't want the test ones),
+                    // adding a <dependency> node for each
+                    configurations.api.allDependencies.each {
+                        def dependencyNode = dependenciesNode.appendNode('dependency')
+                        dependencyNode.appendNode('groupId', it.group)
+                        dependencyNode.appendNode('artifactId', it.name)
+                        dependencyNode.appendNode('version', it.version)
+                    }
+                }
             }
         }
     }
 
     signing {
-        sign publishing.publications.mavenLibsNoCV
+        sign publishing.publications.mavenLibsSdk
     }
 }

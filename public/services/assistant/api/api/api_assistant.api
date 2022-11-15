@@ -1,4 +1,4 @@
-public abstract interface class ru/sberdevices/assistant/PublicAssistantLib {
+public abstract interface class ru/sberdevices/services/assistant/PublicAssistantLib {
 	public abstract fun cancelAssistantSpeech (Ljava/lang/String;)V
 	public abstract fun dispose ()V
 }
