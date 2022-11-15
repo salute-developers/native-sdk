@@ -3,11 +3,7 @@ plugins {
     id 'kotlin-android'
 }
 
-android {
-    lintOptions {
-        abortOnError false
-    }
-}
+apply from: "$rootProject.projectDir/android_subproject.gradle"
 
 dependencies {
     implementation "androidx.core:core-ktx:$versions.androidx.core"

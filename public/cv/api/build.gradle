@@ -9,6 +9,9 @@ plugins {
 android {
     defaultConfig {
         buildConfigField 'String', 'CV_API_VERSION', "\"3.1.0\""
+        buildToolsVersion versions.buildTools
+        compileSdkVersion versions.compileSdk
+        minSdkVersion versions.minSdk
     }
 
     compileOptions {

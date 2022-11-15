@@ -1,4 +1,4 @@
-package ru.sberdevices.assistant
+package ru.sberdevices.services.assistant
 
 import androidx.annotation.AnyThread
 

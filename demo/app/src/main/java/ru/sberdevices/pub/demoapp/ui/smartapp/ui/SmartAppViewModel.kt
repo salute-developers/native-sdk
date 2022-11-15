@@ -10,7 +10,7 @@ import kotlinx.coroutines.launch
 import kotlinx.serialization.decodeFromString
 import kotlinx.serialization.encodeToString
 import kotlinx.serialization.json.Json
-import ru.sberdevices.assistant.PublicAssistantLib
+import ru.sberdevices.services.assistant.PublicAssistantLib
 import ru.sberdevices.common.logger.Logger
 import ru.sberdevices.messaging.MessageId
 import ru.sberdevices.messaging.Messaging

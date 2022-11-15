@@ -17,6 +17,7 @@ interface Messaging {
      * payload: {"action_id": "run_app, "app_info": {"projectId":"5633938a-5ff3-49c9-ba7d-fe2a9944de78"}, "parameters": {}}
      *
      */
+    @WorkerThread
     fun sendAction(messageName: MessageName, payload: Payload): MessageId
 
     /**
@@ -26,6 +27,7 @@ interface Messaging {
      * Requires permission: "ru.sberdevices.permission.CROSS_APP_ACTION"
      */
     @RequiresPermission("ru.sberdevices.permission.CROSS_APP_ACTION")
+    @WorkerThread
     fun sendAction(messageName: MessageName, payload: Payload, androidApplicationID: String): MessageId
 
     /**

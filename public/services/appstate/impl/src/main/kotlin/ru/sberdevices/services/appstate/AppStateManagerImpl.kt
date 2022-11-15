@@ -108,7 +108,7 @@ internal class AppStateManagerImpl(
                 logger.debug { "setting provider for: $androidApplicationID" }
                 rwLock.read {
                     service.setProviderForApp(
-                        backgroundAppProviders.getOrDefault(androidApplicationID, null),
+                        backgroundAppProviders.get(androidApplicationID),
                         androidApplicationID
                     )
                 }

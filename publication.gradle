@@ -1,19 +1,14 @@
 ext.publication = [:]
 
-publication.connectionUrl = 'scm:git:git://github.com/sberdevices/native_smartapp_sdk.git'
-publication.developerConnection = 'scm:git:ssh://github.com:sberdevices/native_smartapp_sdk.git'
-publication.githubUrl = 'https://github.com/sberdevices/native_smartapp_sdk'
+publication.connectionUrl = 'scm:git:git://github.com/salute-developers/native-sdk.git'
+publication.developerConnection = 'scm:git:ssh://github.com:salute-developers/native-sdk.git'
+publication.githubUrl = 'https://github.com/salute-developers'
 publication.licenseName = 'Sber Public License at-nc-sa v.2'
-publication.licenseUrl = 'https://github.com/sberdevices/native_smartapp_sdk/blob/master/LICENSE.txt'
+publication.licenseUrl = 'https://github.com/salute-developers/native-sdk/blob/main/LICENSE.txt'
 publication.deployUrl = "https://s01.oss.sonatype.org/service/local/staging/deploy/maven2/"
 
+publication.pomGroupID = "ru.sberdevices.smartapp"
 
-publication.pomGroupID = "ru.sberdevices.smartapp.sdk"
-
-publication.pomCvLibVersion = "3.1.1"
-publication.pomBinderHelperVersion = "0.2-alpha"
-publication.pomAppStateVersion = "1.1-alpha"
-publication.pomMessagingVersion = "1.1-alpha"
-publication.pomMicCameraStateVersion = "1.1-alpha"
-publication.pomCameraUtilLibVersion = "1.1-alpha"
-publication.pomCommonLibsVersion = "1.1-alpha"
+publication.pomCommonVersion = "1.0.1"
+publication.pomCvVersion = "1.0.1"
+publication.pomSdkVersion = "1.0.1"
