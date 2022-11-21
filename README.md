@@ -16,7 +16,7 @@ You can use Computer Vision libraries as well to get gestures and visual informa
 # Documentation
 KDocs pages [describing libraries](https://salute-developers.github.io/native-sdk/)
 
-Documentation regarding development of Native Apps is available at [developer’s portal](https://developer.sberdevices.ru/docs/ru/methodology/research/nativeapp) (in Russian).
+Documentation regarding development of Native Apps is available at [developer’s portal](https://developers.sber.ru/docs/ru/va/tutorials/nativeapp/libraries) (in Russian).
 
 # Support
 Please send your feedback and feature requests to our [issues board](https://github.com/salute-developers/native-sdk).
