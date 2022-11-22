@@ -13,7 +13,7 @@ You can use Computer Vision libraries as well to get gestures and visual informa
 * **PayLib** is a small library that provides SmartPay service functionality. The library opens payment dialog for invoice id and returns the PayResultCode. For more details see [native app processing](https://developers.sber.ru/docs/ru/va/tutorials/nativeapp/payments).
 * Additional libraries: **asserts**, **camera**, **logger** and **binderhelper**.
 
-# How to connect
+# Dependency info
 In order to connect an SDK (All libs except for CV lib):
 
     implementation 'ru.sberdevices.smartapp:sdk:1.0.1'
