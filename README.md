@@ -21,7 +21,9 @@ In order to connect an SDK (All libs except for CV lib):
 If you want to use the power of CV features you shold also add:
 
     implementation "ru.sberdevices.smartapp:cv:1.0.1"
-
+    
+# Usage samples
+For libs usage samples see our [demo](https://github.com/salute-developers/native-sdk/tree/main/demo).
 
 # Documentation
 KDocs pages [describing libraries](https://salute-developers.github.io/native-sdk/)
