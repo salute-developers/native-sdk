@@ -11,6 +11,7 @@ import kotlinx.coroutines.flow.collect
 import org.koin.androidx.viewmodel.ext.android.viewModel
 import ru.sberdevices.common.logger.Logger
 import ru.sberdevices.pub.demoapp.ui.cv.ComputerVisionFragment
+import ru.sberdevices.pub.demoapp.ui.environmentinfo.EnvironmentInfoFragment
 import ru.sberdevices.pub.demoapp.ui.smartapp.ui.SmartAppFragment
 import ru.sberdevices.pub.demoapp.ui.tabscreen.util.enterImmersiveMode
 import ru.sberdevices.pub.demoapp.ui.tabscreen.util.exitImmersiveMode
@@ -34,7 +35,7 @@ class TabsFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         setClickListeners()
 
-        renderTabSelection(TabUi.SERVICES)
+        renderTabSelection(TabUi.ENVIRONMENT_INFO)
 
         lifecycleScope.launchWhenCreated {
             viewModel.isCameraAvailable.collect { hasCamera ->
@@ -44,6 +45,7 @@ class TabsFragment : Fragment() {
     }
 
     private fun setClickListeners() {
+        binding.environmentInfoTabButton.setOnClickListener { renderTabFragment(TabUi.ENVIRONMENT_INFO) }
         binding.servicesTabButton.setOnClickListener { renderTabSelection(TabUi.SERVICES) }
         binding.cvTabButton.setOnClickListener { renderTabSelection(TabUi.CV) }
         binding.gesturesTabButton.setOnClickListener { renderTabSelection(TabUi.GESTURES) }
@@ -52,6 +54,7 @@ class TabsFragment : Fragment() {
     private fun renderTabSelection(selectedTab: TabUi) {
         logger.debug { "Render tab selection $selectedTab" }
 
+        binding.environmentInfoTabButton.isSelected = selectedTab == TabUi.ENVIRONMENT_INFO
         binding.servicesTabButton.isSelected = selectedTab == TabUi.SERVICES
         binding.cvTabButton.isSelected = selectedTab == TabUi.CV
 
@@ -67,6 +70,10 @@ class TabsFragment : Fragment() {
 
     private fun renderTabFragment(tab: TabUi) {
         val fragment = when (tab) {
+            TabUi.ENVIRONMENT_INFO -> {
+                requireActivity().window.exitImmersiveMode()
+                EnvironmentInfoFragment.newInstance()
+            }
             TabUi.SERVICES -> {
                 requireActivity().window.exitImmersiveMode()
                 SmartAppFragment.newInstance()
@@ -85,6 +92,11 @@ class TabsFragment : Fragment() {
 
     companion object {
         enum class TabUi {
+            /**
+             * Tab for environment info.
+             */
+            ENVIRONMENT_INFO,
+
             /**
              * Tab for services demo
              */

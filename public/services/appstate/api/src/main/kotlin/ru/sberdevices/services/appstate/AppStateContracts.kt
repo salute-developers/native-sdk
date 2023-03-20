@@ -68,6 +68,15 @@ interface AppStateRequestManager : AppStateManager {
      */
     @Throws(SecurityException::class)
     fun unregisterBackgroundApp(packageName: String)
+
+    /**
+     * Выдает версию сервиса, установленного на устройстве.
+     * @return Выдаст [Int.MAX_VALUE], если сервис на устройстве найден,
+     * но у него нет версии - в таком случае совместимость вызываемых методов
+     * не гарантируется. Если сервис не установлен на устройстве, то выдаст null.
+     * Во всех остальных случаях выдает [Int] - значение версии сервиса.
+     */
+    fun getVersion(): Int?
 }
 
 /**

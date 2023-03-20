@@ -10,9 +10,11 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.stateIn
 import kotlinx.coroutines.launch
-import ru.sberdevices.common.binderhelper.BinderHelperFactory
-import ru.sberdevices.common.logger.Logger
+import ru.sberdevices.common.binderhelper.BinderHelper
+import ru.sberdevices.common.binderhelper.SinceVersion
+import ru.sberdevices.common.binderhelper.sdk.getVersionForSdk
 import ru.sberdevices.common.coroutines.CoroutineDispatchers
+import ru.sberdevices.common.logger.Logger
 import ru.sberdevices.services.appstate.entities.AppStateServiceStatus
 import java.util.concurrent.atomic.AtomicReference
 import java.util.concurrent.locks.ReentrantReadWriteLock
@@ -20,20 +22,15 @@ import kotlin.concurrent.read
 import kotlin.concurrent.write
 
 internal class AppStateManagerImpl(
-    binderHelperFactory: BinderHelperFactory<IAppStateService>,
+    private val helper: BinderHelper<IAppStateService>,
     coroutineDispatchers: CoroutineDispatchers
 ) : AppStateRequestManager {
 
     private val logger = Logger.get("AppStateManagerImpl")
-
     private val scope = CoroutineScope(SupervisorJob() + coroutineDispatchers.default)
-
     private val providerReference = AtomicReference<AppStateProvider>(null)
-
     private val rwLock = ReentrantReadWriteLock()
-
     private val backgroundAppProviders = mutableMapOf<String, IAppStateProvider.Stub?>()
-
     private val providerInternal = object : IAppStateProvider.Stub() {
         @BinderThread
         override fun getAppState(): String? {
@@ -43,10 +40,8 @@ internal class AppStateManagerImpl(
         }
     }
 
-    private val helper = binderHelperFactory.create()
-
+    @SinceVersion(2)
     override val appStateServiceStatusFlow: StateFlow<AppStateServiceStatus> = callbackFlow {
-
         val appStateStatusListener = object : IAppStateStatusListener.Stub() {
             override fun onAppStateConnected() {
                 logger.debug { "onAppStateConnected()" }
@@ -63,27 +58,27 @@ internal class AppStateManagerImpl(
             logger.debug { "awaitClose, removing AppStateStatusListener" }
             helper.tryExecute { it.removeAppStateStatusListener(appStateStatusListener) }
         }
-    }
-        .stateIn(
-            scope = scope,
-            started = SharingStarted.WhileSubscribed(),
-            initialValue = AppStateServiceStatus.UNREADY
-        )
+    }.stateIn(
+        scope = scope,
+        started = SharingStarted.WhileSubscribed(),
+        initialValue = AppStateServiceStatus.UNREADY
+    )
 
     init {
         logger.info { "init" }
-
         helper.connect()
         scope.launch {
             helper.execute { service -> service.setProvider(providerInternal) }
         }
     }
 
+    @SinceVersion(1)
     override fun setProvider(provider: AppStateProvider?) {
         logger.debug { "setProvider: $provider" }
         providerReference.set(provider)
     }
 
+    @SinceVersion(2)
     override fun setProvider(androidApplicationID: String, provider: AppStateProvider?) {
         if (provider != null) {
             logger.debug { "registering provider for: $androidApplicationID" }
@@ -108,7 +103,7 @@ internal class AppStateManagerImpl(
                 logger.debug { "setting provider for: $androidApplicationID" }
                 rwLock.read {
                     service.setProviderForApp(
-                        backgroundAppProviders.get(androidApplicationID),
+                        backgroundAppProviders[androidApplicationID],
                         androidApplicationID
                     )
                 }
@@ -116,25 +111,25 @@ internal class AppStateManagerImpl(
         }
     }
 
+    @SinceVersion(2)
     override fun registerBackgroundApp(packageName: String) {
         logger.debug { "registerBackgroundApp: $packageName" }
-
-        scope.launch {
-            helper.execute { it.registerBackgroundApp(packageName) }
-        }
+        scope.launch { helper.execute { it.registerBackgroundApp(packageName) } }
     }
 
+    @SinceVersion(2)
     override fun unregisterBackgroundApp(packageName: String) {
         logger.debug { "unregisterBackgroundApp: $packageName" }
+        scope.launch { helper.execute { it.unregisterBackgroundApp(packageName) } }
+    }
 
-        scope.launch {
-            helper.execute { it.unregisterBackgroundApp(packageName) }
-        }
+    override fun getVersion(): Int? {
+        logger.debug { "getVersionForSdk" }
+        return helper.getVersionForSdk(logger = logger)
     }
 
     override fun dispose() {
         logger.info { "dispose()" }
-
         scope.launch {
             rwLock.read {
                 logger.debug { "clearing previously set providers, size: ${backgroundAppProviders.size}" }
@@ -142,9 +137,8 @@ internal class AppStateManagerImpl(
                     helper.execute { it.setProviderForApp(null, packageName) }
                 }
             }
-            rwLock.write {
-                backgroundAppProviders.clear()
-            }
+
+            rwLock.write { backgroundAppProviders.clear() }
             helper.disconnect()
             scope.cancel()
         }

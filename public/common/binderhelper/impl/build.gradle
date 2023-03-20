@@ -11,7 +11,7 @@ dependencies {
     implementation project(':public:common:logger')
 
     implementation "androidx.annotation:annotation:$versions.annotation"
-    implementation "androidx.core:core-ktx:$versions.androidx.core"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlinReflect"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlinxCoroutines"
 
     testImplementation "io.mockk:mockk:$versions.mockk"

@@ -7,6 +7,7 @@ You can use Computer Vision libraries as well to get gestures and visual informa
 
 # Libraries
 * **AppState** is a small library that transmits current state of the app from back-end part of smartapp to the front-end. Data is transmitted via JSON message. The app state is *pulled* from native APK and transmitted to back-end with every user’s voice request.
+* **EnvironmentInfo** is a small library that provides info about environment params (version, device type, child mode status and etc).
 * **Messaging** is a library that serves as messaging interface between native app and smartapp back-end. The library enables sending events (eg user’s actions) to smartapp back-end. It also allows native app receive messages from back-end (eg user’s voice requests).
 * **mic-camera-state** is a library that provides current state of device camera and microphone (microphone can be disabled and camera can be covered).
 * **cv** и **camera** libraries helps recognize user’s gestures and pose using devices camera. Works only on devices with built-in cameras.
@@ -16,11 +17,11 @@ You can use Computer Vision libraries as well to get gestures and visual informa
 # Dependency info
 In order to connect an SDK (All libs except for CV lib):
 
-    implementation "ru.sberdevices.smartapp:sdk:1.0.1"
+    implementation "ru.sberdevices.smartapp:sdk:1.1.0"
     
 If you want to use the power of CV features you shold also add:
 
-    implementation "ru.sberdevices.smartapp:cv:1.0.1"
+    implementation "ru.sberdevices.smartapp:cv:1.1.0"
     
 # Usage samples
 For libs usage samples see our [demo](https://github.com/salute-developers/native-sdk/tree/main/demo).

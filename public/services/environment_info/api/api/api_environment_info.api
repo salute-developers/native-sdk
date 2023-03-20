@@ -1,0 +1,71 @@
+public final class ru/sberdevices/services/published/environment/info/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
+}
+
+public abstract interface class ru/sberdevices/services/published/environment/info/EnvironmentInfoRepository {
+	public abstract fun getDeviceType (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getScreenStateFlow ()Lkotlinx/coroutines/flow/Flow;
+	public abstract fun getStarOsVersion (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
+	public abstract fun getUserSettingsInfo ()Lkotlinx/coroutines/flow/Flow;
+	public abstract fun getVersion ()Ljava/lang/Integer;
+}
+
+public final class ru/sberdevices/services/published/environment/info/models/ScreenState {
+	public fun <init> (ZLru/sberdevices/services/published/environment/info/models/enums/DreamState;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Lru/sberdevices/services/published/environment/info/models/enums/DreamState;
+	public final fun copy (ZLru/sberdevices/services/published/environment/info/models/enums/DreamState;)Lru/sberdevices/services/published/environment/info/models/ScreenState;
+	public static synthetic fun copy$default (Lru/sberdevices/services/published/environment/info/models/ScreenState;ZLru/sberdevices/services/published/environment/info/models/enums/DreamState;ILjava/lang/Object;)Lru/sberdevices/services/published/environment/info/models/ScreenState;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDreamState ()Lru/sberdevices/services/published/environment/info/models/enums/DreamState;
+	public fun hashCode ()I
+	public final fun isNoScreenModeEnabled ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class ru/sberdevices/services/published/environment/info/models/UserSettingsInfo {
+	public fun <init> (ZLru/sberdevices/services/published/environment/info/models/enums/DeviceLockMode;)V
+	public final fun component1 ()Z
+	public final fun component2 ()Lru/sberdevices/services/published/environment/info/models/enums/DeviceLockMode;
+	public final fun copy (ZLru/sberdevices/services/published/environment/info/models/enums/DeviceLockMode;)Lru/sberdevices/services/published/environment/info/models/UserSettingsInfo;
+	public static synthetic fun copy$default (Lru/sberdevices/services/published/environment/info/models/UserSettingsInfo;ZLru/sberdevices/services/published/environment/info/models/enums/DeviceLockMode;ILjava/lang/Object;)Lru/sberdevices/services/published/environment/info/models/UserSettingsInfo;
+	public fun equals (Ljava/lang/Object;)Z
+	public final fun getDeviceLockMode ()Lru/sberdevices/services/published/environment/info/models/enums/DeviceLockMode;
+	public fun hashCode ()I
+	public final fun isChildModeEnabled ()Z
+	public fun toString ()Ljava/lang/String;
+}
+
+public final class ru/sberdevices/services/published/environment/info/models/enums/DeviceLockMode : java/lang/Enum {
+	public static final field NO_LOCK Lru/sberdevices/services/published/environment/info/models/enums/DeviceLockMode;
+	public static final field PIN_CODE Lru/sberdevices/services/published/environment/info/models/enums/DeviceLockMode;
+	public static fun valueOf (Ljava/lang/String;)Lru/sberdevices/services/published/environment/info/models/enums/DeviceLockMode;
+	public static fun values ()[Lru/sberdevices/services/published/environment/info/models/enums/DeviceLockMode;
+}
+
+public final class ru/sberdevices/services/published/environment/info/models/enums/DeviceType : java/lang/Enum {
+	public static final field BOOM Lru/sberdevices/services/published/environment/info/models/enums/DeviceType;
+	public static final field BOOM_MINI Lru/sberdevices/services/published/environment/info/models/enums/DeviceType;
+	public static final field HEAD_UNIT Lru/sberdevices/services/published/environment/info/models/enums/DeviceType;
+	public static final field SBERBOX Lru/sberdevices/services/published/environment/info/models/enums/DeviceType;
+	public static final field SBERBOX_TOP Lru/sberdevices/services/published/environment/info/models/enums/DeviceType;
+	public static final field SBER_TIME Lru/sberdevices/services/published/environment/info/models/enums/DeviceType;
+	public static final field SMARTBOX Lru/sberdevices/services/published/environment/info/models/enums/DeviceType;
+	public static final field STARGATE Lru/sberdevices/services/published/environment/info/models/enums/DeviceType;
+	public static final field TV Lru/sberdevices/services/published/environment/info/models/enums/DeviceType;
+	public static final field UNKNOWN Lru/sberdevices/services/published/environment/info/models/enums/DeviceType;
+	public static fun valueOf (Ljava/lang/String;)Lru/sberdevices/services/published/environment/info/models/enums/DeviceType;
+	public static fun values ()[Lru/sberdevices/services/published/environment/info/models/enums/DeviceType;
+}
+
+public final class ru/sberdevices/services/published/environment/info/models/enums/DreamState : java/lang/Enum {
+	public static final field AWAKE Lru/sberdevices/services/published/environment/info/models/enums/DreamState;
+	public static final field NIGHT Lru/sberdevices/services/published/environment/info/models/enums/DreamState;
+	public static final field SCREENSAVER Lru/sberdevices/services/published/environment/info/models/enums/DreamState;
+	public static fun valueOf (Ljava/lang/String;)Lru/sberdevices/services/published/environment/info/models/enums/DreamState;
+	public static fun values ()[Lru/sberdevices/services/published/environment/info/models/enums/DreamState;
+}
+

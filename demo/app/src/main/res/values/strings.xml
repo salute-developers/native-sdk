@@ -1,6 +1,7 @@
 <resources>
     <string name="app_name">StarSDK External Developer Demo</string>
 
+    <string name="environment_info_tab">ENV</string>
     <string name="asistant_tab">ASSISTANT</string>
     <string name="cv_tab">COMPUTER VISION</string>
     <string name="gestures_tab">GESTURES</string>

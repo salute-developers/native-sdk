@@ -1,0 +1,25 @@
+plugins {
+    id 'com.android.library'
+    id 'kotlin-android'
+    id 'org.jetbrains.kotlinx.binary-compatibility-validator' version '0.10.1'
+}
+
+apply from: "$rootProject.projectDir/android_subproject.gradle"
+
+dependencies {
+    api project(':public:services:environment_info:api_environment_info')
+    implementation project(':public:services:environment_info:aidl')
+
+    implementation project(':public:common:binderhelper:impl')
+    implementation project(':public:common:coroutines')
+    implementation project(':public:common:logger')
+
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlinxCoroutines"
+    implementation "androidx.annotation:annotation:$versions.annotation"
+}
+
+task androidSourcesJar(type: Jar) {
+    archiveClassifier.set('sources')
+    from android.sourceSets.main.java.srcDirs
+    from android.sourceSets.main.kotlin.srcDirs
+}

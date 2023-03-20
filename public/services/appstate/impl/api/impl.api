@@ -3,7 +3,6 @@ public final class ru/sberdevices/services/appstate/AppStateManagerFactory {
 	public static final fun createHolder (Landroid/content/Context;Lru/sberdevices/common/coroutines/CoroutineDispatchers;)Lru/sberdevices/services/appstate/AppStateHolder;
 	public static synthetic fun createHolder$default (Landroid/content/Context;Lru/sberdevices/common/coroutines/CoroutineDispatchers;ILjava/lang/Object;)Lru/sberdevices/services/appstate/AppStateHolder;
 	public static final fun createRequestManager (Landroid/content/Context;Lru/sberdevices/common/coroutines/CoroutineDispatchers;)Lru/sberdevices/services/appstate/AppStateRequestManager;
-	public static synthetic fun createRequestManager$default (Landroid/content/Context;Lru/sberdevices/common/coroutines/CoroutineDispatchers;ILjava/lang/Object;)Lru/sberdevices/services/appstate/AppStateRequestManager;
 }
 
 public final class ru/sberdevices/services/appstate/description/dsl/AppStateDescriptionDslKt {

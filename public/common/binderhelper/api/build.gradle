@@ -5,6 +5,7 @@ plugins {
 }
 
 dependencies {
+    implementation project(':public:common:logger')
     implementation "androidx.annotation:annotation:$versions.annotation"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlinxCoroutines"
 }

@@ -16,7 +16,11 @@ ru.sberdevices.services.appstate.description.entity
 ru.sberdevices.services.appstate.entities
 ru.sberdevices.services.appstate.exceptions
 module:assistant
-ru.sberdevices.assistant
+ru.sberdevices.services.assistant
+module:environment_info
+ru.sberdevices.services.published.environment.info
+ru.sberdevices.services.published.environment.info.models
+ru.sberdevices.services.published.environment.info.models.enums
 module:messaging
 ru.sberdevices.messaging
 module:mic_camera_state

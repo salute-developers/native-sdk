@@ -52,13 +52,13 @@ android {
 
 dependencies {
     // SberDevices
-    implementation 'ru.sberdevices.smartapp:sdk:1.0.1'
-    implementation "ru.sberdevices.smartapp:cv:1.0.1"
+//    implementation 'ru.sberdevices.smartapp:sdk:1.0.1'
+//    implementation "ru.sberdevices.smartapp:cv:1.0.1"
 
     // Uncomment to test local fat aar
-//    implementation files('../common.aar')
-//    implementation files('../cv.aar')
-//    implementation files('../sdk.aar')
+    implementation files('../common.aar')
+    implementation files('../cv.aar')
+    implementation files('../sdk.aar')
 
     // Android
     implementation "androidx.appcompat:appcompat:$versions.androidx.appcompat"
@@ -70,6 +70,7 @@ dependencies {
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$versions.kotlinxCoroutinesAndroid"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlinxCoroutines"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$versions.kotlin"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlinReflect"
 
     implementation "org.jetbrains.kotlinx:kotlinx-serialization-json:$versions.kotlinxSerializations"
 

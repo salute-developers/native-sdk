@@ -24,10 +24,16 @@ public final class ru/sberdevices/messaging/MessageName : java/lang/Enum {
 public abstract interface class ru/sberdevices/messaging/Messaging {
 	public abstract fun addListener (Lru/sberdevices/messaging/Messaging$Listener;)V
 	public abstract fun dispose ()V
+	public abstract fun getVersion ()Ljava/lang/Integer;
 	public abstract fun removeListener (Lru/sberdevices/messaging/Messaging$Listener;)V
-	public abstract fun sendAction (Lru/sberdevices/messaging/MessageName;Lru/sberdevices/messaging/Payload;)Lru/sberdevices/messaging/MessageId;
-	public abstract fun sendAction (Lru/sberdevices/messaging/MessageName;Lru/sberdevices/messaging/Payload;Ljava/lang/String;)Lru/sberdevices/messaging/MessageId;
+	public abstract fun sendAction (Lru/sberdevices/messaging/MessageName;Lru/sberdevices/messaging/Payload;Ljava/lang/String;Lru/sberdevices/messaging/StateLevel;Lru/sberdevices/messaging/ServerActionMode;)Lru/sberdevices/messaging/MessageId;
+	public abstract fun sendAction (Lru/sberdevices/messaging/MessageName;Lru/sberdevices/messaging/Payload;Lru/sberdevices/messaging/StateLevel;Lru/sberdevices/messaging/ServerActionMode;)Lru/sberdevices/messaging/MessageId;
 	public abstract fun sendText (Ljava/lang/String;)V
+}
+
+public final class ru/sberdevices/messaging/Messaging$DefaultImpls {
+	public static synthetic fun sendAction$default (Lru/sberdevices/messaging/Messaging;Lru/sberdevices/messaging/MessageName;Lru/sberdevices/messaging/Payload;Ljava/lang/String;Lru/sberdevices/messaging/StateLevel;Lru/sberdevices/messaging/ServerActionMode;ILjava/lang/Object;)Lru/sberdevices/messaging/MessageId;
+	public static synthetic fun sendAction$default (Lru/sberdevices/messaging/Messaging;Lru/sberdevices/messaging/MessageName;Lru/sberdevices/messaging/Payload;Lru/sberdevices/messaging/StateLevel;Lru/sberdevices/messaging/ServerActionMode;ILjava/lang/Object;)Lru/sberdevices/messaging/MessageId;
 }
 
 public abstract interface class ru/sberdevices/messaging/Messaging$Listener {
@@ -49,6 +55,21 @@ public final class ru/sberdevices/messaging/Payload {
 	public final fun getData ()Ljava/lang/String;
 	public fun hashCode ()I
 	public fun toString ()Ljava/lang/String;
+}
+
+public final class ru/sberdevices/messaging/ServerActionMode : java/lang/Enum {
+	public static final field BACKGROUND Lru/sberdevices/messaging/ServerActionMode;
+	public static final field FOREGROUND Lru/sberdevices/messaging/ServerActionMode;
+	public static fun valueOf (Ljava/lang/String;)Lru/sberdevices/messaging/ServerActionMode;
+	public static fun values ()[Lru/sberdevices/messaging/ServerActionMode;
+}
+
+public final class ru/sberdevices/messaging/StateLevel : java/lang/Enum {
+	public static final field ALL Lru/sberdevices/messaging/StateLevel;
+	public static final field UNSUPPORTED Lru/sberdevices/messaging/StateLevel;
+	public static final field WITHOUT_APPS Lru/sberdevices/messaging/StateLevel;
+	public static fun valueOf (Ljava/lang/String;)Lru/sberdevices/messaging/StateLevel;
+	public static fun values ()[Lru/sberdevices/messaging/StateLevel;
 }
 
 public final class ru/sberdevices/services/messaging/api/BuildConfig {

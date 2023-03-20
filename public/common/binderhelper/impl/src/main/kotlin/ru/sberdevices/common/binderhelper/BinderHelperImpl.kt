@@ -37,6 +37,9 @@ internal class BinderHelperImpl<BinderInterface : IInterface>(
     private val binderState = MutableStateFlow<BinderInterface?>(null)
     private val connectionState = MutableStateFlow<ServiceConnection?>(null)
 
+    @Volatile
+    private var lastReturnedServiceVersionResult: Result<ServiceVersion>? = null
+
     private val mutableBinderStateFlow = MutableStateFlow(BinderState.DISCONNECTED)
 
     override val binderStateFlow: StateFlow<BinderState>
@@ -198,5 +201,40 @@ internal class BinderHelperImpl<BinderInterface : IInterface>(
                 // We just want to wait for ServiceConnection#onServiceConnected(...)
             }
         }
+    }
+
+    override fun getVersion(): Result<ServiceVersion> {
+        val lastReturnedService = lastReturnedServiceVersionResult
+
+        if (lastReturnedService != null) {
+            return lastReturnedService
+        }
+
+        val result: Result<ServiceVersion> = run {
+            val component = intent.component
+                ?: return@run Result
+                    .failure(VersionNotFoundException("component not found for intent"))
+
+            val metadata = context
+                .packageManager.getServiceInfo(component, PackageManager.GET_META_DATA)
+                .metaData
+                ?: return@run Result.failure(VersionNotFoundException("$component has no metadata"))
+
+            val value = metadata
+                .getInt(SERVICE_VERSION_KEY, -1)
+
+            if (value == -1) {
+                return@run Result.failure(
+                    VersionNotFoundException(
+                        "$component metadata has no $SERVICE_VERSION_KEY property"
+                    )
+                )
+            }
+
+            Result.success(value)
+        }
+        lastReturnedServiceVersionResult = result
+
+        return result
     }
 }

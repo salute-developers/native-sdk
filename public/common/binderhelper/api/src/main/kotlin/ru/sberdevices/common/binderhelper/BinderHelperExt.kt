@@ -21,10 +21,10 @@ import ru.sberdevices.common.binderhelper.entities.BinderState
 fun <T : IInterface> CoroutineScope.repeatOnState(
     helper: BinderHelper<T>,
     binderState: BinderState,
-    block: suspend () -> Unit
+    block: suspend BinderHelper<T>.() -> Unit
 ) {
     helper.binderStateFlow
         .filter { it == binderState }
-        .onEach { block.invoke() }
+        .onEach { block.invoke(helper) }
         .launchIn(this)
 }
