@@ -1,0 +1,63 @@
+<!doctype html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" charset="UTF-8">
+    <title>sendAction</title>
+<link href="../../../../../../images/logo-icon.svg" rel="icon" type="image/svg"><script>var pathToRoot = "../../../../../../";</script>    <script>const storage = localStorage.getItem("dokka-dark-mode")
+    if (storage == null) {
+        const osDarkSchemePreferred = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+        if (osDarkSchemePreferred === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    } else {
+        const savedDarkMode = JSON.parse(storage)
+        if(savedDarkMode === true) {
+            document.getElementsByTagName("html")[0].classList.add("theme-dark")
+        }
+    }
+    </script>
+<script type="text/javascript" src="../../../../../../scripts/sourceset_dependencies.js" async></script>
+<link href="../../../../../../styles/style.css" rel="Stylesheet">
+<link href="../../../../../../styles/jetbrains-mono.css" rel="Stylesheet">
+<link href="../../../../../../styles/main.css" rel="Stylesheet">
+<link href="../../../../../../styles/prism.css" rel="Stylesheet">
+<link href="../../../../../../styles/logo-styles.css" rel="Stylesheet">
+<script type="text/javascript" src="../../../../../../scripts/clipboard.js" async></script>
+<script type="text/javascript" src="../../../../../../scripts/navigation-loader.js" async></script>
+<script type="text/javascript" src="../../../../../../scripts/platform-content-handler.js" async></script>
+<script type="text/javascript" src="../../../../../../scripts/main.js" defer></script>
+<script type="text/javascript" src="../../../../../../scripts/prism.js" async></script>
+<script type="text/javascript" src="../../../../../../scripts/symbol-parameters-wrapper_deferred.js" defer></script></head>
+<body>
+<div class="navigation-wrapper" id="navigation-wrapper">
+    <div id="leftToggler"><span class="icon-toggler"></span></div>
+    <div class="library-name">
+<a href="../../../../../../index.html">
+<span>native_smartapp_sdk</span>            </a>    </div>
+    <div>
+    </div>
+    <div class="pull-right d-flex">
+        <button id="theme-toggle-button"><span id="theme-toggle"></span></button>
+        <div id="searchBar"></div>
+    </div>
+</div>
+<div id="container">
+    <div id="leftColumn">
+        <div id="sideMenu"></div>
+    </div>
+    <div id="main">
+<div class="main-content" id="content" pageids="messaging::ru.sberdevices.messaging/Messaging/sendAction/#ru.sberdevices.messaging.MessageName#ru.sberdevices.messaging.Payload#ru.sberdevices.messaging.StateLevel#ru.sberdevices.messaging.ServerActionMode/PointingToDeclaration//-638327641">
+  <div class="breadcrumbs"><a href="../../index.html">messaging</a><span class="delimiter">/</span><a href="../index.html">ru.sberdevices.messaging</a><span class="delimiter">/</span><a href="index.html">Messaging</a><span class="delimiter">/</span><span class="current">sendAction</span></div>
+  <div class="cover ">
+    <h1 class="cover"><span>send</span><wbr><span><span>Action</span></span></h1>
+  </div>
+  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":public:services:messaging:api_messaging:dokkaHtmlPartial/release"><div class="symbol monospace"><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="send-action.html"><span class="token function">sendAction</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">messageName<span class="token operator">: </span><a href="../-message-name/index.html">MessageName</a><span class="token punctuation">, </span></span><span class="parameter ">payload<span class="token operator">: </span><a href="../-payload/index.html">Payload</a><span class="token punctuation">, </span></span><span class="parameter ">stateLevel<span class="token operator">: </span><a href="../-state-level/index.html">StateLevel</a><span class="token operator"> = </span>StateLevel.UNSUPPORTED<span class="token punctuation">, </span></span><span class="parameter ">serverActionMode<span class="token operator">: </span><a href="../-server-action-mode/index.html">ServerActionMode</a><span class="token operator"> = </span>ServerActionMode.FOREGROUND</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-message-id/index.html">MessageId</a></div><p class="paragraph">simple ServerAction example messageName: SERVER_ACTION payload: {"action_id": "GET_STREAM", "parameters": {"content_id": "111111"}}</p><p class="paragraph">runApp example messageName: RUN_APP payload: {"action_id": "run_app, "app_info": {"projectId":"5633938a-5ff3-49c9-ba7d-fe2a9944de78"}, "parameters": {}}</p><span class="kdoc-tag"><h4 class="">Return</h4><p class="paragraph">generated message ID that can be used to track response, logs and etc</p></span><h4 class="">Parameters</h4><div data-togglable="Parameters"><div class="table" data-togglable="Parameters"><div class="table-row" data-filterable-current=":public:services:messaging:api_messaging:dokkaHtmlPartial/release" data-filterable-set=":public:services:messaging:api_messaging:dokkaHtmlPartial/release"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span>server</span><wbr><span>Action</span><wbr><span><span>Mode</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">need for backend filtering</p></div></div></div></div></div><div class="table-row" data-filterable-current=":public:services:messaging:api_messaging:dokkaHtmlPartial/release" data-filterable-set=":public:services:messaging:api_messaging:dokkaHtmlPartial/release"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span>state</span><wbr><span><span>Level</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">defines the amount of information gathered by the system.</p><ul><li><p class="paragraph"><a href="../-state-level/-a-l-l/index.html">StateLevel.ALL</a> is should be used in most cases.</p></li><li><p class="paragraph">If your action does not require state gathering, use <a href="../-state-level/-w-i-t-h-o-u-t_-a-p-p-s/index.html">StateLevel.WITHOUT_APPS</a> and action will be sent faster.</p></li></ul></div></div></div></div></div></div></div><hr><div class="symbol monospace"><div class="block"><div class="block"><span class="token annotation builtin">@</span><a href="https://developer.android.com/reference/kotlin/androidx/annotation/RequiresPermission.html"><span class="token annotation builtin">RequiresPermission</span></a><span class="token punctuation">(</span><span>value<span class="token operator"> = </span><span class="breakable-word"><span class="token string">"ru.sberdevices.permission.CROSS_APP_ACTION"</span></span></span><wbr><span class="token punctuation">)</span></div></div><span class="token keyword">abstract </span><span class="token keyword"></span><span class="token keyword">fun </span><a href="send-action.html"><span class="token function">sendAction</span></a><span class="token punctuation">(</span><span class="parameters "><span class="parameter ">messageName<span class="token operator">: </span><a href="../-message-name/index.html">MessageName</a><span class="token punctuation">, </span></span><span class="parameter ">payload<span class="token operator">: </span><a href="../-payload/index.html">Payload</a><span class="token punctuation">, </span></span><span class="parameter ">androidApplicationID<span class="token operator">: </span><a href="https://kotlinlang.org/api/latest/jvm/stdlib/kotlin/-string/index.html">String</a><span class="token punctuation">, </span></span><span class="parameter ">stateLevel<span class="token operator">: </span><a href="../-state-level/index.html">StateLevel</a><span class="token operator"> = </span>StateLevel.UNSUPPORTED<span class="token punctuation">, </span></span><span class="parameter ">serverActionMode<span class="token operator">: </span><a href="../-server-action-mode/index.html">ServerActionMode</a><span class="token operator"> = </span>ServerActionMode.FOREGROUND</span></span><span class="token punctuation">)</span><span class="token operator">: </span><a href="../-message-id/index.html">MessageId</a></div><p class="paragraph">Send server_action with source app androidApplicationID</p><p class="paragraph">For internal use only.</p><span class="kdoc-tag"><h4 class="">Return</h4><p class="paragraph">generated message ID that can be used to track response, logs and etc</p></span><h4 class="">Parameters</h4><div data-togglable="Parameters"><div class="table" data-togglable="Parameters"><div class="table-row" data-filterable-current=":public:services:messaging:api_messaging:dokkaHtmlPartial/release" data-filterable-set=":public:services:messaging:api_messaging:dokkaHtmlPartial/release"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span>server</span><wbr><span>Action</span><wbr><span><span>Mode</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">need for backend filtering</p></div></div></div></div></div><div class="table-row" data-filterable-current=":public:services:messaging:api_messaging:dokkaHtmlPartial/release" data-filterable-set=":public:services:messaging:api_messaging:dokkaHtmlPartial/release"><div class="main-subrow keyValue WithExtraAttributes"><div class=""><span class="inline-flex"><div><u><span>state</span><wbr><span><span>Level</span></span></u></div></span></div><div><div class="title"><div data-togglable="Parameters"><p class="paragraph">defines the amount of information gathered by the system.</p><ul><li><p class="paragraph"><a href="../-state-level/-a-l-l/index.html">StateLevel.ALL</a> is should be used in most cases.</p></li><li><p class="paragraph">If your action does not require state gathering, use <a href="../-state-level/-w-i-t-h-o-u-t_-a-p-p-s/index.html">StateLevel.WITHOUT_APPS</a> and action will be sent faster.</p></li></ul></div></div></div></div></div></div></div><h4 class="">Throws</h4><div class="table" data-togglable="Throws"><div class="table-row" data-filterable-current=":public:services:messaging:api_messaging:dokkaHtmlPartial/release" data-filterable-set=":public:services:messaging:api_messaging:dokkaHtmlPartial/release"><div class="main-subrow keyValue "><div class=""><span class="inline-flex"><div><a href="https://developer.android.com/reference/kotlin/java/lang/SecurityException.html"><span>Security</span><wbr><span><span>Exception</span></span></a></div></span></div><div><div class="title"><p class="paragraph">if trying to call method without having "ru.sberdevices.permission.CROSS_APP_ACTION" permission</p></div></div></div></div></div></div></div>
+</div>
+      <div class="footer">
+        <span class="go-to-top-icon"><a href="#content" id="go-to-top-link"></a></span><span>© 2023 Copyright</span><span class="pull-right"><span>Generated by </span><a href="https://github.com/Kotlin/dokka"><span>dokka</span><span class="padded-icon"></span></a></span>
+      </div>
+    </div>
+</div>
+
+</body></html>
+

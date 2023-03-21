@@ -62,20 +62,12 @@ afterEvaluate {
                     }
                     developers {
                         developer {
-                            name = 'Irina Karpenko'
-                            email = 'IViKarpenko@sberbank.ru'
-                        }
-                        developer {
-                            name = 'Dmitry Levshunov'
-                            email = 'Levshunov.D.A@sberbank.ru'
-                        }
-                        developer {
                             name = 'Nikolay Pahomov'
                             email = 'NMPakhomov@sberbank.ru'
                         }
                         developer {
-                            name = 'Igor Perminov'
-                            email = 'Perminov.I.Yurye@sberbank.ru'
+                            name = 'Maxim Mityushkin'
+                            email = 'MSMityushkin@sberbank.ru'
                         }
                     }
                     scm {

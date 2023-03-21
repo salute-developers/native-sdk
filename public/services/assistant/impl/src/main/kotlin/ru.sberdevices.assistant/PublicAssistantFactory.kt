@@ -5,6 +5,7 @@ import ru.sberdevices.common.binderhelper.BinderHelper
 import ru.sberdevices.common.binderhelper.BinderHelperFactory2
 import ru.sberdevices.common.binderhelper.CachedBinderHelper
 import ru.sberdevices.common.binderhelper.createCached
+import ru.sberdevices.common.binderhelper.sdk.VersionedServiceSdkProxy
 import ru.sberdevices.common.coroutines.CoroutineDispatchers
 import ru.sberdevices.services.assistant.IPublicAssistantService
 
@@ -18,13 +19,18 @@ class PublicAssistantFactory(
 ) {
 
     fun create(): PublicAssistantLib {
-        return PublicAssistantLibImpl(
-            getHelper(),
-            coroutineDispatchers
+        val binderHelper = getBinderHelper()
+
+        return VersionedServiceSdkProxy.proxy(
+            binderHelper = binderHelper,
+            implInstance = PublicAssistantLibImpl(
+                binderHelper = binderHelper,
+                coroutineDispatchers = coroutineDispatchers
+            )
         )
     }
 
-    private fun getHelper(): CachedBinderHelper<IPublicAssistantService> {
+    private fun getBinderHelper(): CachedBinderHelper<IPublicAssistantService> {
         val bindIntent = BinderHelper.createBindIntent(
             packageName = "ru.sberdevices.services",
             className = "ru.sberdevices.services.assistant.PublicAssistantService"

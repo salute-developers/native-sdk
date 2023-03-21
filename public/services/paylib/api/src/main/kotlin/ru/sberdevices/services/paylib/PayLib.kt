@@ -8,11 +8,19 @@ import ru.sberdevices.services.paylib.entities.PayStatus
 interface PayLib {
 
     /**
-     * Запуск оплаты.
-     * @see <a href=https://developers.sber.ru/docs/ru/smartservices/smartpay/processing/payment-steps>Этапы оплаты</a>
+     * Запуск оплаты. Подробнее об этапах оплаты см. по ссылке: https://developers.sber.ru/docs/ru/smartservices/smartpay/processing/payment-steps
      *
      * @param invoiceId Идентификатор созданного счета.
      * @return Результат оплаты.
      */
     suspend fun launchPayDialog(invoiceId: String): Result<PayStatus>
+
+    /**
+     * Выдает версию сервиса, установленного на устройстве.
+     * @return Выдаст [Int.MAX_VALUE], если сервис на устройстве найден,
+     * но у него нет версии - в таком случае совместимость вызываемых методов
+     * не гарантируется. Если сервис не установлен на устройстве, то выдаст null.
+     * Во всех остальных случаях выдает [Int] - значение версии сервиса.
+     */
+    fun getVersion(): Int?
 }

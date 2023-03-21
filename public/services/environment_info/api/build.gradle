@@ -1,0 +1,16 @@
+plugins {
+    id 'com.android.library'
+    id 'org.jetbrains.kotlinx.binary-compatibility-validator' version '0.10.1'
+    id 'org.jetbrains.dokka'
+}
+
+dependencies {
+    implementation "androidx.core:core-ktx:$versions.androidx.core"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlinxCoroutines"
+}
+
+task androidSourcesJar(type: Jar) {
+    archiveClassifier.set('sources')
+    from android.sourceSets.main.java.srcDirs
+    from android.sourceSets.main.kotlin.srcDirs
+}

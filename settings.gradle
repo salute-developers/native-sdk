@@ -23,6 +23,9 @@ include ':public:common:asserts',
         ':public:services:appstate:aidl',
         ':public:services:appstate:api',
         ':public:services:appstate:impl',
+        ':public:services:environment_info:aidl',
+        ':public:services:environment_info:api',
+        ':public:services:environment_info:impl',
         ':public:services:messaging:aidl',
         ':public:services:messaging:api',
         ':public:services:messaging:impl',
@@ -36,6 +39,7 @@ include ':public:common:asserts',
 project(':public:cv:api').name = "api_cv"
 project(':public:services:appstate:api').name = "api_appstate"
 project(':public:services:assistant:api').name = "api_assistant"
+project(':public:services:environment_info:api').name = "api_environment_info"
 project(':public:services:messaging:api').name = "api_messaging"
 project(':public:services:mic_camera_state:api').name = "api_mic_camera_state"
 project(':public:services:paylib:api').name = "api_paylib"

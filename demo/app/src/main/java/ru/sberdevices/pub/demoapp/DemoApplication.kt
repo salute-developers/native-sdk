@@ -20,13 +20,16 @@ import ru.sberdevices.cv.detection.CvApiFactoryImpl
 import ru.sberdevices.messaging.MessagingFactory
 import ru.sberdevices.pub.demoapp.repository.GesturesRepository
 import ru.sberdevices.pub.demoapp.ui.cv.ComputerVisionViewModel
+import ru.sberdevices.pub.demoapp.ui.environmentinfo.EnvironmentInfoViewModel
 import ru.sberdevices.pub.demoapp.ui.smartapp.ui.SmartAppViewModel
 import ru.sberdevices.pub.demoapp.ui.tabscreen.ui.TabsViewModel
 import ru.sberdevices.sdk.demoapp.ui.gestures.GesturesNavigationMapViewModel
 import ru.sberdevices.sdk.demoapp.ui.gestures.controller.GridController
 import ru.sberdevices.services.appstate.AppStateManagerFactory
+import ru.sberdevices.services.mic.camera.state.MicCameraStateRepositoryFactory
 import ru.sberdevices.services.paylib.PayLibFactory
 import ru.sberdevices.services.pub.demoapp.BuildConfig
+import ru.sberdevices.services.published.environment.info.EnvironmentInfoRepositoryFactory
 
 class DemoApplication : Application() {
 
@@ -44,13 +47,14 @@ class DemoApplication : Application() {
     }
 
     private val viewModelModule = module {
-        single { SmartAppViewModel(
-            messaging = get(),
-            appStateHolder = get(),
-            ioCoroutineDispatcher = Dispatchers.IO,
-            paylib = get(),
-            assistant = get()
-        )
+        single {
+            SmartAppViewModel(
+                messaging = get(),
+                appStateHolder = get(),
+                ioCoroutineDispatcher = Dispatchers.IO,
+                paylib = get(),
+                assistant = get()
+            )
         }
         viewModel {
             ComputerVisionViewModel(
@@ -66,13 +70,20 @@ class DemoApplication : Application() {
             )
         }
         viewModel { TabsViewModel() }
+        viewModel {
+            EnvironmentInfoViewModel(
+                environmentInfoRepository = get(),
+                micCameraStateRepository = get(),
+                payLib = get(),
+                assistantLib = get(),
+                messaging = get()
+            )
+        }
     }
 
     private val sdkModule = module {
         factory<CvApiFactory> { CvApiFactoryImpl(this@DemoApplication) }
-        factory {
-            MessagingFactory.create(appContext = get())
-        }
+        factory { MessagingFactory.create(appContext = get()) }
         factory {
             PayLibFactory(
                 context = androidContext(),
@@ -82,6 +93,19 @@ class DemoApplication : Application() {
         }
         factory {
             PublicAssistantFactory(
+                context = androidContext(),
+                coroutineDispatchers = CoroutineDispatchers,
+                binderHelperFactory2 = get()
+            ).create()
+        }
+        factory {
+            MicCameraStateRepositoryFactory(
+                context = androidContext(),
+                coroutineDispatchers = CoroutineDispatchers
+            ).create()
+        }
+        factory {
+            EnvironmentInfoRepositoryFactory(
                 context = androidContext(),
                 coroutineDispatchers = CoroutineDispatchers,
                 binderHelperFactory2 = get()

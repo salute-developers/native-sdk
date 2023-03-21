@@ -4,7 +4,7 @@ package ru.sberdevices.common.binderhelper.entities
  * Исключения, которые могут кинуться во время вызовов Remote методов.
  * @author Николай Пахомов on 02.02.2022
  */
-sealed class BinderException(override val message: String) : Exception(message) {
+sealed class BinderException(override val message: String) : RuntimeException(message) {
     /**
      * IPC соединение не было установлено.
      */

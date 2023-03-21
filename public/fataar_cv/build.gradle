@@ -30,7 +30,7 @@ afterEvaluate {
 }
 
 dependencies {
-    api "ru.sberdevices.smartapp:common_libs:1.0.1"
+    api "ru.sberdevices.smartapp:common_libs:1.1.0"
 
     embed project(path: ':public:cv:aidl', configuration: 'default')
     embed project(path: ':public:cv:api_cv', configuration: 'default')
@@ -64,12 +64,8 @@ afterEvaluate {
                     }
                     developers {
                         developer {
-                            name = 'Irina Karpenko'
-                            email = 'IViKarpenko@sberbank.ru'
-                        }
-                        developer {
-                            name = 'Dmitry Levshunov'
-                            email = 'Levshunov.D.A@sberbank.ru'
+                            name = 'Maxim Mityushkin'
+                            email = 'MSMityushkin@sberbank.ru'
                         }
                     }
                     scm {

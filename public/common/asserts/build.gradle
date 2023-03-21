@@ -6,7 +6,7 @@ plugins {
 apply from: "$rootProject.projectDir/android_subproject.gradle"
 
 dependencies {
-    implementation "androidx.core:core-ktx:$versions.androidx.core"
+    implementation "androidx.annotation:annotation:$versions.annotation"
 }
 
 task androidSourcesJar(type: Jar) {

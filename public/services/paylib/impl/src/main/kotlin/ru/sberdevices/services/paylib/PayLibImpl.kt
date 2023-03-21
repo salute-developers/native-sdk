@@ -2,20 +2,20 @@ package ru.sberdevices.services.paylib
 
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.channels.awaitClose
-import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.flow.SharedFlow
 import kotlinx.coroutines.flow.SharingStarted
 import kotlinx.coroutines.flow.callbackFlow
 import kotlinx.coroutines.flow.filter
 import kotlinx.coroutines.flow.first
-import kotlinx.coroutines.flow.flow
 import kotlinx.coroutines.flow.flowOn
 import kotlinx.coroutines.flow.launchIn
 import kotlinx.coroutines.flow.onEach
 import kotlinx.coroutines.flow.shareIn
 import ru.sberdevices.common.binderhelper.CachedBinderHelper
+import ru.sberdevices.common.binderhelper.SinceVersion
 import ru.sberdevices.common.binderhelper.entities.BinderState
 import ru.sberdevices.common.binderhelper.repeatOnState
+import ru.sberdevices.common.binderhelper.sdk.getVersionForSdk
 import ru.sberdevices.common.coroutines.CoroutineDispatchers
 import ru.sberdevices.common.logger.Logger
 import ru.sberdevices.services.paylib.aidl.wrappers.PayStatusListenerWrapper
@@ -29,12 +29,10 @@ internal class PayLibImpl(
 ) : PayLib {
 
     private val logger = Logger.get("PayLibImpl")
-
     private val payStatusFlow: SharedFlow<PayStatus>
 
     init {
         logger.debug { "init" }
-
         payStatusFlow = callbackFlow {
             logger.debug { "onStart()" }
             helper.connect()
@@ -71,6 +69,7 @@ internal class PayLibImpl(
         )
     }
 
+    @SinceVersion(1)
     override suspend fun launchPayDialog(invoiceId: String): Result<PayStatus> {
         logger.debug { "launchPayDialog, invoiceId: $invoiceId" }
         val launched = helper.executeWithResult { it.launchPayDialog(invoiceId) }
@@ -93,5 +92,10 @@ internal class PayLibImpl(
         }.also { result ->
             logger.debug { "launchPayDialog, invoiceId: $invoiceId result: $result" }
         }
+    }
+
+    override fun getVersion(): Int? {
+        logger.debug { "getVersionForSdk" }
+        return helper.getVersionForSdk(logger = logger)
     }
 }

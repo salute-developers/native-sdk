@@ -1,4 +1,4 @@
-public abstract interface class ru/sberdevices/common/binderhelper/BinderHelper {
+public abstract interface class ru/sberdevices/common/binderhelper/BinderHelper : ru/sberdevices/common/binderhelper/Versional {
 	public static final field Companion Lru/sberdevices/common/binderhelper/BinderHelper$Companion;
 	public abstract fun connect ()Z
 	public abstract fun disconnect ()V
@@ -17,7 +17,7 @@ public final class ru/sberdevices/common/binderhelper/BinderHelper$Companion {
 }
 
 public final class ru/sberdevices/common/binderhelper/BinderHelperExtKt {
-	public static final fun repeatOnState (Lkotlinx/coroutines/CoroutineScope;Lru/sberdevices/common/binderhelper/BinderHelper;Lru/sberdevices/common/binderhelper/entities/BinderState;Lkotlin/jvm/functions/Function1;)V
+	public static final fun repeatOnState (Lkotlinx/coroutines/CoroutineScope;Lru/sberdevices/common/binderhelper/BinderHelper;Lru/sberdevices/common/binderhelper/entities/BinderState;Lkotlin/jvm/functions/Function2;)V
 }
 
 public abstract interface class ru/sberdevices/common/binderhelper/BinderHelperFactory2 {
@@ -38,6 +38,22 @@ public abstract interface class ru/sberdevices/common/binderhelper/CachedBinderH
 	public abstract fun getHasConnection ()Z
 }
 
+public final class ru/sberdevices/common/binderhelper/ServiceVersionKt {
+	public static final field SERVICE_VERSION_KEY Ljava/lang/String;
+}
+
+public abstract interface annotation class ru/sberdevices/common/binderhelper/SinceVersion : java/lang/annotation/Annotation {
+	public abstract fun version ()I
+}
+
+public final class ru/sberdevices/common/binderhelper/VersionNotFoundException : java/lang/RuntimeException {
+	public fun <init> (Ljava/lang/String;)V
+}
+
+public abstract interface class ru/sberdevices/common/binderhelper/Versional {
+	public abstract fun getVersion-d1pmJ48 ()Ljava/lang/Object;
+}
+
 public final class ru/sberdevices/common/binderhelper/api/BuildConfig {
 	public static final field BUILD_TYPE Ljava/lang/String;
 	public static final field DEBUG Z
@@ -45,7 +61,7 @@ public final class ru/sberdevices/common/binderhelper/api/BuildConfig {
 	public fun <init> ()V
 }
 
-public abstract class ru/sberdevices/common/binderhelper/entities/BinderException : java/lang/Exception {
+public abstract class ru/sberdevices/common/binderhelper/entities/BinderException : java/lang/RuntimeException {
 	public synthetic fun <init> (Ljava/lang/String;Lkotlin/jvm/internal/DefaultConstructorMarker;)V
 	public fun getMessage ()Ljava/lang/String;
 }
@@ -69,5 +85,15 @@ public final class ru/sberdevices/common/binderhelper/entities/BinderState : jav
 	public static final field NULL_BINDING Lru/sberdevices/common/binderhelper/entities/BinderState;
 	public static fun valueOf (Ljava/lang/String;)Lru/sberdevices/common/binderhelper/entities/BinderState;
 	public static fun values ()[Lru/sberdevices/common/binderhelper/entities/BinderState;
+}
+
+public final class ru/sberdevices/common/binderhelper/sdk/IncompatibilityVersionException : java/lang/RuntimeException {
+	public fun <init> (Ljava/lang/String;)V
+	public fun getMessage ()Ljava/lang/String;
+}
+
+public final class ru/sberdevices/common/binderhelper/sdk/SdkServiceVersionHelperKt {
+	public static final fun getVersionForSdk (Lru/sberdevices/common/binderhelper/BinderHelper;Lru/sberdevices/common/logger/Logger;)Ljava/lang/Integer;
+	public static synthetic fun getVersionForSdk$default (Lru/sberdevices/common/binderhelper/BinderHelper;Lru/sberdevices/common/logger/Logger;ILjava/lang/Object;)Ljava/lang/Integer;
 }
 

@@ -7,6 +7,7 @@ import ru.sberdevices.common.binderhelper.BinderHelper
 import ru.sberdevices.common.binderhelper.BinderHelperFactory2
 import ru.sberdevices.common.binderhelper.CachedBinderHelper
 import ru.sberdevices.common.binderhelper.createCached
+import ru.sberdevices.common.binderhelper.sdk.VersionedServiceSdkProxy
 import ru.sberdevices.common.coroutines.CoroutineDispatchers
 import ru.sberdevices.services.paylib.aidl.wrappers.PayStatusListenerWrapperImpl
 
@@ -20,16 +21,23 @@ class PayLibFactory(
 ) {
 
     /**
-     * @return Экземпляр [PayLib], работающий по биндеру.
+     * @return Экземпляр, работающий по биндеру.
      */
-    fun create(): PayLib = PayLibImpl(
-        helper = getHelper(),
-        dispatchers = coroutineDispatchers,
-        payStatusListenerWrapper = PayStatusListenerWrapperImpl(),
-        callbackScope = CoroutineScope(SupervisorJob() + coroutineDispatchers.default)
-    )
+    fun create(): PayLib {
+        val binderHelper = getBinderHelper()
 
-    private fun getHelper(): CachedBinderHelper<IPayLibService> {
+        return VersionedServiceSdkProxy.proxy(
+            binderHelper = binderHelper,
+            implInstance = PayLibImpl(
+                helper = binderHelper,
+                dispatchers = coroutineDispatchers,
+                payStatusListenerWrapper = PayStatusListenerWrapperImpl(),
+                callbackScope = CoroutineScope(SupervisorJob() + coroutineDispatchers.default)
+            )
+        )
+    }
+
+    private fun getBinderHelper(): CachedBinderHelper<IPayLibService> {
         val bindIntent = BinderHelper.createBindIntent(
             packageName = "ru.sberdevices.services",
             className = "ru.sberdevices.services.pay.PayLibService"

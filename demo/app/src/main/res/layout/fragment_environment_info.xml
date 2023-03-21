@@ -1,0 +1,397 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:background="#000000">
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16"
+                android:text="StarOS version:"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body2"
+                android:textColor="@color/sbdv_white_64" />
+
+            <TextView
+                android:id="@+id/environmentInfoVersionText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp16"
+                android:text="(...)"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body2"
+                android:textColor="@color/sbdv_white_64" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16"
+                android:text="Device type:"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body2"
+                android:textColor="@color/sbdv_white_64" />
+
+            <TextView
+                android:id="@+id/environmentInfoDeviceTypeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp16"
+                android:text="(...)"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body2"
+                android:textColor="@color/sbdv_white_64" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
+            android:paddingLeft="@dimen/dp16"
+            android:paddingRight="@dimen/dp16"
+            android:text="Screen state:"
+            android:textAppearance="@style/TextAppearance.SberDevices.Body2"
+            android:textColor="@color/sbdv_white_64" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16"
+                android:text="Dream state:"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+            <TextView
+                android:id="@+id/environmentInfoDreamStateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp16"
+                android:text="(...)"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16"
+                android:text="No screen mode enabled:"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+            <TextView
+                android:id="@+id/environmentInfoNoScreenModeEnabledText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp16"
+                android:text="(...)"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
+            android:paddingLeft="@dimen/dp16"
+            android:paddingRight="@dimen/dp16"
+            android:text="User settings info:"
+            android:textAppearance="@style/TextAppearance.SberDevices.Body2"
+            android:textColor="@color/sbdv_white_64" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16"
+                android:text="Child mode enabled:"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+            <TextView
+                android:id="@+id/environmentInfoChildModeEnabledText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp16"
+                android:text="(...)"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16"
+                android:text="Device lock mode"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+            <TextView
+                android:id="@+id/environmentInfoDeviceLockModeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp16"
+                android:text="(...)"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/dp16"
+            android:paddingLeft="@dimen/dp16"
+            android:paddingRight="@dimen/dp16"
+            android:text="Mic &amp; camera:"
+            android:textAppearance="@style/TextAppearance.SberDevices.Body2"
+            android:textColor="@color/sbdv_white_64" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16"
+                android:text="Microphone state"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+            <TextView
+                android:id="@+id/microphoneStateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp16"
+                android:text="(...)"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16"
+                android:text="Camera state"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+            <TextView
+                android:id="@+id/cameraStateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp16"
+                android:text="(...)"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16"
+                android:text="Camera covered"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+            <TextView
+                android:id="@+id/cameraCoveredStateText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp16"
+                android:text="(...)"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+        </LinearLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_weight="1"
+        android:orientation="vertical"
+        android:layout_width="0dp"
+        android:layout_height="match_parent">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/dp16"
+            android:paddingRight="@dimen/dp16"
+            android:text="Service versions:"
+            android:textAppearance="@style/TextAppearance.SberDevices.Body2"
+            android:textColor="@color/sbdv_white_64" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16"
+                android:text="Assistant"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+            <TextView
+                android:id="@+id/assistantServiceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp16"
+                android:text="(...)"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16"
+                android:text="EnvInfo"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+            <TextView
+                android:id="@+id/envInfoServiceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp16"
+                android:text="(...)"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16"
+                android:text="Messaging"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+            <TextView
+                android:id="@+id/messagingServiceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp16"
+                android:text="(...)"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16"
+                android:text="MicCameraState"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+            <TextView
+                android:id="@+id/micCameraStateServiceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp16"
+                android:text="(...)"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="@dimen/dp16"
+                android:paddingRight="@dimen/dp16"
+                android:text="PayLib"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+            <TextView
+                android:id="@+id/payLibServiceText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingRight="@dimen/dp16"
+                android:text="(...)"
+                android:textAppearance="@style/TextAppearance.SberDevices.Body1"
+                android:textColor="@color/sbdv_white_64" />
+
+        </LinearLayout>
+    </LinearLayout>
+</LinearLayout>

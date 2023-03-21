@@ -15,7 +15,7 @@ import ru.sberdevices.common.binderhelper.entities.BinderException
  * На корутинах, без блокирования потоков и лишних переключений контекста. Заменяет deprecated BinderHelper.
  * Для примера использования - см. UserSettingsManagerImpl.
  */
-interface BinderHelper<BinderInterface : IInterface> {
+interface BinderHelper<BinderInterface : IInterface>: Versional {
 
     /**
      * Флоу текущего состояния соединения с сервисом. По умолчанию [BinderState.DISCONNECTED]

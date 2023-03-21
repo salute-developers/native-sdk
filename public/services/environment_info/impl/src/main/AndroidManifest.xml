@@ -1,0 +1,5 @@
+<manifest package="ru.sberdevices.services.published.environment.info"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <uses-permission android:name="ru.sberdevices.permission.BIND_PUBLIC_ENVIRONMENT_INFO_SERVICE" />
+</manifest>

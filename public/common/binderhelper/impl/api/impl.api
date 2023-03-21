@@ -19,3 +19,12 @@ public final class ru/sberdevices/common/binderhelper/impl/BuildConfig {
 	public fun <init> ()V
 }
 
+public final class ru/sberdevices/common/binderhelper/sdk/VersionedServiceSdkProxy : java/lang/reflect/InvocationHandler {
+	public static final field Companion Lru/sberdevices/common/binderhelper/sdk/VersionedServiceSdkProxy$Companion;
+	public fun <init> (Ljava/lang/Object;Lru/sberdevices/common/binderhelper/BinderHelper;)V
+	public fun invoke (Ljava/lang/Object;Ljava/lang/reflect/Method;[Ljava/lang/Object;)Ljava/lang/Object;
+}
+
+public final class ru/sberdevices/common/binderhelper/sdk/VersionedServiceSdkProxy$Companion {
+}
+

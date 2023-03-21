@@ -4,6 +4,7 @@ import android.content.Context
 import androidx.annotation.AnyThread
 import ru.sberdevices.common.binderhelper.BinderHelper
 import ru.sberdevices.common.binderhelper.BinderHelperFactory
+import ru.sberdevices.common.binderhelper.sdk.VersionedServiceSdkProxy
 import ru.sberdevices.common.coroutines.CoroutineDispatchers
 import ru.sberdevices.services.appstate.exceptions.AppStateManagerAlreadyExistsException
 import java.util.concurrent.atomic.AtomicInteger
@@ -20,7 +21,10 @@ object AppStateManagerFactory {
     @JvmStatic
     @Synchronized
     @Throws(AppStateManagerAlreadyExistsException::class)
-    fun createHolder(context: Context, coroutineDispatchers: CoroutineDispatchers = CoroutineDispatchers.Default): AppStateHolder {
+    fun createHolder(
+        context: Context,
+        coroutineDispatchers: CoroutineDispatchers = CoroutineDispatchers
+    ): AppStateHolder {
         // counter will be incremented during creation of AppStateRequestManager inside AppStateHolder
 
         return AppStateHolderImpl(context.applicationContext, coroutineDispatchers)
@@ -30,24 +34,29 @@ object AppStateManagerFactory {
     @Synchronized
     @Throws(AppStateManagerAlreadyExistsException::class)
     fun createRequestManager(
-        context: Context
-    ,
-        coroutineDispatchers: CoroutineDispatchers = CoroutineDispatchers.Default
+        context: Context,
+        coroutineDispatchers: CoroutineDispatchers
     ): AppStateRequestManager {
         incrementAndCheckCounter()
 
-        return AppStateManagerImpl(
-            binderHelperFactory = BinderHelperFactory(
-                context = context,
-                BinderHelper.createBindIntent(
-                    "ru.sberdevices.services",
-                    "ru.sberdevices.services.appstate.AppStateService"
-                ),
-                getBinding = { IAppStateService.Stub.asInterface(it) }
+        val binderHelper = getBinderHelper(context)
+        return VersionedServiceSdkProxy.proxy(
+            binderHelper = binderHelper,
+            implInstance = AppStateManagerImpl(
+                coroutineDispatchers = coroutineDispatchers,
+                helper = binderHelper,
             ),
-            coroutineDispatchers = CoroutineDispatchers.Default
         )
     }
+
+    private fun getBinderHelper(context: Context) = BinderHelperFactory(
+        context = context,
+        getBinding = { IAppStateService.Stub.asInterface(it) },
+        intent = BinderHelper.createBindIntent(
+            "ru.sberdevices.services",
+            "ru.sberdevices.services.appstate.AppStateService"
+        ),
+    ).create()
 
     @Synchronized
     internal fun onAppStateManagerDispose() {

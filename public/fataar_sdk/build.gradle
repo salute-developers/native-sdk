@@ -30,7 +30,7 @@ afterEvaluate {
 }
 
 dependencies {
-    api "ru.sberdevices.smartapp:common_libs:1.0.1"
+    api "ru.sberdevices.smartapp:common_libs:1.1.0"
 
     embed project(path: ':public:services:appstate:aidl', configuration: 'default')
     embed project(path: ':public:services:appstate:api_appstate', configuration: 'default')
@@ -39,6 +39,10 @@ dependencies {
     embed project(path: ':public:services:assistant:aidl', configuration: 'default')
     embed project(path: ':public:services:assistant:api_assistant', configuration: 'default')
     embed project(path: ':public:services:assistant:impl', configuration: 'default')
+
+    embed project(path: ':public:services:environment_info:aidl', configuration: 'default')
+    embed project(path: ':public:services:environment_info:api_environment_info', configuration: 'default')
+    embed project(path: ':public:services:environment_info:impl', configuration: 'default')
 
     embed project(path: ':public:services:messaging:aidl', configuration: 'default')
     embed project(path: ':public:services:messaging:api_messaging', configuration: 'default')
@@ -81,8 +85,8 @@ afterEvaluate {
                             email = 'NMPakhomov@sberbank.ru'
                         }
                         developer {
-                            name = 'Igor Perminov'
-                            email = 'Perminov.I.Yurye@sberbank.ru'
+                            name = 'Maxim Mityushkin'
+                            email = 'MSMityushkin@sberbank.ru'
                         }
                     }
                     scm {

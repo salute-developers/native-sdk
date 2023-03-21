@@ -6,7 +6,7 @@
     android:background="@drawable/sbdv_background">
 
     <TextView
-        android:id="@+id/servicesTabButton"
+        android:id="@+id/environmentInfoTabButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/edge_item_margin"
@@ -19,11 +19,30 @@
         android:paddingEnd="@dimen/dp16"
         android:paddingStart="@dimen/dp16"
         android:paddingTop="@dimen/dp8"
-        android:text="@string/asistant_tab"
+        android:text="@string/environment_info_tab"
         android:textAppearance="@style/TextAppearance.SberDevices.Headline"
         android:textColor="@color/tab_color_selector"
         android:translationY="-0.28sp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/servicesTabButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="0dp"
+        android:foreground="@drawable/tab_label_background"
+        android:gravity="top"
+        android:lineSpacingExtra="1sp"
+        android:paddingBottom="@dimen/dp8"
+        android:paddingEnd="@dimen/dp16"
+        android:paddingStart="@dimen/dp16"
+        android:paddingTop="@dimen/dp8"
+        android:text="@string/asistant_tab"
+        android:textAppearance="@style/TextAppearance.SberDevices.Headline"
+        android:textColor="@color/tab_color_selector"
+        android:translationY="-0.28sp"
+        app:layout_constraintStart_toEndOf="@id/environmentInfoTabButton"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
