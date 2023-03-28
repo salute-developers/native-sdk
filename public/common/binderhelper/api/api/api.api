@@ -87,11 +87,6 @@ public final class ru/sberdevices/common/binderhelper/entities/BinderState : jav
 	public static fun values ()[Lru/sberdevices/common/binderhelper/entities/BinderState;
 }
 
-public final class ru/sberdevices/common/binderhelper/sdk/IncompatibilityVersionException : java/lang/RuntimeException {
-	public fun <init> (Ljava/lang/String;)V
-	public fun getMessage ()Ljava/lang/String;
-}
-
 public final class ru/sberdevices/common/binderhelper/sdk/SdkServiceVersionHelperKt {
 	public static final fun getVersionForSdk (Lru/sberdevices/common/binderhelper/BinderHelper;Lru/sberdevices/common/logger/Logger;)Ljava/lang/Integer;
 	public static synthetic fun getVersionForSdk$default (Lru/sberdevices/common/binderhelper/BinderHelper;Lru/sberdevices/common/logger/Logger;ILjava/lang/Object;)Ljava/lang/Integer;
