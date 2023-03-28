@@ -1,16 +1,16 @@
-public final class ru/sberdevices/services/published/environment/info/BuildConfig {
-	public static final field BUILD_TYPE Ljava/lang/String;
-	public static final field DEBUG Z
-	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
-	public fun <init> ()V
-}
-
 public abstract interface class ru/sberdevices/services/published/environment/info/EnvironmentInfoRepository {
 	public abstract fun getDeviceType (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getScreenStateFlow ()Lkotlinx/coroutines/flow/Flow;
 	public abstract fun getStarOsVersion (Lkotlin/coroutines/Continuation;)Ljava/lang/Object;
 	public abstract fun getUserSettingsInfo ()Lkotlinx/coroutines/flow/Flow;
 	public abstract fun getVersion ()Ljava/lang/Integer;
+}
+
+public final class ru/sberdevices/services/published/environment/info/api/BuildConfig {
+	public static final field BUILD_TYPE Ljava/lang/String;
+	public static final field DEBUG Z
+	public static final field LIBRARY_PACKAGE_NAME Ljava/lang/String;
+	public fun <init> ()V
 }
 
 public final class ru/sberdevices/services/published/environment/info/models/ScreenState {
