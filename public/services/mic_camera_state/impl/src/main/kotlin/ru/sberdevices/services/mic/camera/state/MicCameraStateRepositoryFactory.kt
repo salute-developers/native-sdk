@@ -5,9 +5,8 @@ import androidx.annotation.RequiresPermission
 import ru.sberdevices.common.binderhelper.BinderHelper
 import ru.sberdevices.common.binderhelper.BinderHelperFactory
 import ru.sberdevices.common.binderhelper.CachedBinderHelper
-import ru.sberdevices.common.binderhelper.sdk.VersionedServiceSdkProxy
-import ru.sberdevices.common.logger.Logger
 import ru.sberdevices.common.coroutines.CoroutineDispatchers
+import ru.sberdevices.common.logger.Logger
 import ru.sberdevices.services.mic.camera.state.aidl.IMicCameraStateService
 import ru.sberdevices.services.mic.camera.state.aidl.wrappers.OnMicCameraStateChangedListenerWrapperImpl
 
@@ -25,13 +24,10 @@ class MicCameraStateRepositoryFactory constructor(
     fun create(): MicCameraStateRepository {
         val binderHelper = getBinderHelper(applicationContext)
 
-        return VersionedServiceSdkProxy.proxy(
-            binderHelper = binderHelper,
-            implInstance = MicCameraStateRepositoryImpl(
-                helper = binderHelper,
-                coroutineDispatchers = coroutineDispatchers,
-                onMicCameraStateChangedListenerWrapper = OnMicCameraStateChangedListenerWrapperImpl()
-            )
+        return MicCameraStateRepositoryImpl(
+            helper = binderHelper,
+            coroutineDispatchers = coroutineDispatchers,
+            onMicCameraStateChangedListenerWrapper = OnMicCameraStateChangedListenerWrapperImpl()
         )
     }
 

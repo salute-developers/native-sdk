@@ -17,11 +17,11 @@ You can use Computer Vision libraries as well to get gestures and visual informa
 # Dependency info
 In order to connect an SDK (All libs except for CV lib):
 
-    implementation "ru.sberdevices.smartapp:sdk:1.1.0"
+    implementation "ru.sberdevices.smartapp:sdk:1.1.1"
     
 If you want to use the power of CV features you shold also add:
 
-    implementation "ru.sberdevices.smartapp:cv:1.1.0"
+    implementation "ru.sberdevices.smartapp:cv:1.1.1"
     
 # Usage samples
 For libs usage samples see our [demo](https://github.com/salute-developers/native-sdk/tree/main/demo).

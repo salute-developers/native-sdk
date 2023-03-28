@@ -5,6 +5,8 @@ plugins {
 }
 
 dependencies {
+    api project(':public:common:binderhelper:api')
+
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8:$versions.kotlin"
     implementation "androidx.annotation:annotation:$versions.annotation"
 }

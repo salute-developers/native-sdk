@@ -6,7 +6,6 @@ import android.content.Intent
 import androidx.annotation.AnyThread
 import ru.sberdevices.common.binderhelper.BinderHelper
 import ru.sberdevices.common.binderhelper.BinderHelperFactory
-import ru.sberdevices.common.binderhelper.sdk.VersionedServiceSdkProxy
 import ru.sberdevices.services.messaging.IMessagingService
 
 object MessagingFactory {
@@ -21,11 +20,7 @@ object MessagingFactory {
     @JvmStatic
     fun create(appContext: Context): Messaging {
         val binderHelper = getBinderHelper(appContext.applicationContext)
-
-        return VersionedServiceSdkProxy.proxy(
-            implInstance = MessagingImpl(helper = binderHelper),
-            binderHelper = binderHelper
-        )
+        return MessagingImpl(helper = binderHelper)
     }
 
     private fun getBinderHelper(context: Context): BinderHelper<IMessagingService> {

@@ -2,6 +2,7 @@ package ru.sberdevices.services.appstate
 
 import androidx.annotation.AnyThread
 import kotlinx.coroutines.flow.StateFlow
+import ru.sberdevices.common.binderhelper.SinceVersion
 import ru.sberdevices.services.appstate.entities.AppStateServiceStatus
 import kotlin.jvm.Throws
 
@@ -28,11 +29,13 @@ interface AppStateRequestManager : AppStateManager {
      * Флоу текущей готовности AppStateService.
      * Если AppStateService готов, он может регистрировать дополнительные приложения.
      */
+    @SinceVersion(2)
     val appStateServiceStatusFlow: StateFlow<AppStateServiceStatus>
 
     /**
      * Выставить провайдера для текущего приложения.
      */
+    @SinceVersion(1)
     fun setProvider(provider: AppStateProvider?)
 
     /**
@@ -42,30 +45,31 @@ interface AppStateRequestManager : AppStateManager {
      * @exception SecurityException если вызывающее приложение не имеет подпись вендора или SberDevices.
      * @hide
      */
+    @SinceVersion(2)
     @Throws(SecurityException::class)
     fun setProvider(androidApplicationID: String, provider: AppStateProvider?)
 
     /**
      * Зарегистрировать приложение как фоновое.
-     *
      * Только для использования внутренними приложениями SberDevices.
      *
      * @param packageName пакет приложения
      * @exception SecurityException если вызывающее приложение не имеет подпись вендора или SberDevices.
      * @hide
      */
+    @SinceVersion(2)
     @Throws(SecurityException::class)
     fun registerBackgroundApp(packageName: String)
 
     /**
      * Удалить приложение из списка фоновых.
-     *
      * Только для использования внутренними приложениями SberDevices.
      *
      * @param packageName пакет приложения
      * @exception SecurityException если вызывающее приложение не имеет подпись вендора или SberDevices.
      * @hide
      */
+    @SinceVersion(2)
     @Throws(SecurityException::class)
     fun unregisterBackgroundApp(packageName: String)
 

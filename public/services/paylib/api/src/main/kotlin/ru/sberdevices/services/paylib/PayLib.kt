@@ -1,5 +1,6 @@
 package ru.sberdevices.services.paylib
 
+import ru.sberdevices.common.binderhelper.SinceVersion
 import ru.sberdevices.services.paylib.entities.PayStatus
 
 /**
@@ -13,6 +14,7 @@ interface PayLib {
      * @param invoiceId Идентификатор созданного счета.
      * @return Результат оплаты.
      */
+    @SinceVersion(1)
     suspend fun launchPayDialog(invoiceId: String): Result<PayStatus>
 
     /**

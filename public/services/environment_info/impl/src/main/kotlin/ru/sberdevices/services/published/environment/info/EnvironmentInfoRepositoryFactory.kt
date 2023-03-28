@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.annotation.RequiresPermission
 import ru.sberdevices.common.binderhelper.BinderHelper
 import ru.sberdevices.common.binderhelper.BinderHelperFactory2
-import ru.sberdevices.common.binderhelper.sdk.VersionedServiceSdkProxy
 import ru.sberdevices.common.coroutines.CoroutineDispatchers
 import ru.sberdevices.services.published.environment.info.mappers.impl.DeviceLockModeMapperImpl
 import ru.sberdevices.services.published.environment.info.mappers.impl.DeviceTypeMapperImpl
@@ -24,15 +23,12 @@ class EnvironmentInfoRepositoryFactory(
     fun create(): EnvironmentInfoRepository {
         val binderHelper = createBinderHelper()
 
-        return VersionedServiceSdkProxy.proxy(
+        return EnvironmentInfoRepositoryImpl(
             binderHelper = binderHelper,
-            implInstance = EnvironmentInfoRepositoryImpl(
-                binderHelper = binderHelper,
-                deviceTypeMapper = DeviceTypeMapperImpl(),
-                dreamStateMapper = DreamStateMapperImpl(),
-                deviceLockModeMapper = DeviceLockModeMapperImpl(),
-                coroutineDispatchers = coroutineDispatchers,
-            )
+            deviceTypeMapper = DeviceTypeMapperImpl(),
+            dreamStateMapper = DreamStateMapperImpl(),
+            deviceLockModeMapper = DeviceLockModeMapperImpl(),
+            coroutineDispatchers = coroutineDispatchers,
         )
     }
 

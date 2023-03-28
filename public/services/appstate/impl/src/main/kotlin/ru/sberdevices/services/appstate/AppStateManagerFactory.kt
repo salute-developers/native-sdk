@@ -4,7 +4,6 @@ import android.content.Context
 import androidx.annotation.AnyThread
 import ru.sberdevices.common.binderhelper.BinderHelper
 import ru.sberdevices.common.binderhelper.BinderHelperFactory
-import ru.sberdevices.common.binderhelper.sdk.VersionedServiceSdkProxy
 import ru.sberdevices.common.coroutines.CoroutineDispatchers
 import ru.sberdevices.services.appstate.exceptions.AppStateManagerAlreadyExistsException
 import java.util.concurrent.atomic.AtomicInteger
@@ -40,12 +39,9 @@ object AppStateManagerFactory {
         incrementAndCheckCounter()
 
         val binderHelper = getBinderHelper(context)
-        return VersionedServiceSdkProxy.proxy(
-            binderHelper = binderHelper,
-            implInstance = AppStateManagerImpl(
-                coroutineDispatchers = coroutineDispatchers,
-                helper = binderHelper,
-            ),
+        return AppStateManagerImpl(
+            coroutineDispatchers = coroutineDispatchers,
+            helper = binderHelper,
         )
     }
 

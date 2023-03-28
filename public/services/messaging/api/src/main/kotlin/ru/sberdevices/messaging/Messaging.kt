@@ -3,6 +3,7 @@ package ru.sberdevices.messaging
 import androidx.annotation.AnyThread
 import androidx.annotation.RequiresPermission
 import androidx.annotation.WorkerThread
+import ru.sberdevices.common.binderhelper.SinceVersion
 
 @WorkerThread
 interface Messaging {
@@ -16,15 +17,14 @@ interface Messaging {
      * messageName: RUN_APP
      * payload: {"action_id": "run_app, "app_info": {"projectId":"5633938a-5ff3-49c9-ba7d-fe2a9944de78"}, "parameters": {}}
      *
-     * @param serverActionMode need for backend filtering
-     *
+     * @param serverActionMode need for backend filtering. On versions lower than 2 parameter will be ignored.
      * @param stateLevel defines the amount of information gathered by the system.
-     *
-     * - [StateLevel.ALL] is should be used in most cases.
-     *
+     * - We must use [StateLevel.ALL] in most cases.
+     * - We must use [StateLevel.UNSUPPORTED] if service version lower than 2.
      * - If your action does not require state gathering, use [StateLevel.WITHOUT_APPS] and action will be sent faster.
      * @return generated message ID that can be used to track response, logs and etc
      */
+    @SinceVersion(1)
     fun sendAction(
         messageName: MessageName,
         payload: Payload,
@@ -34,20 +34,17 @@ interface Messaging {
 
     /**
      * Send server_action with source app androidApplicationID
-     *
      * For internal use only.
      *
-     * @param serverActionMode need for backend filtering
-     *
+     * @param serverActionMode need for backend filtering. On versions lower than 2 parameter will be ignored.
      * @param stateLevel defines the amount of information gathered by the system.
-     *
-     * - [StateLevel.ALL] is should be used in most cases.
-     *
+     * - We must use [StateLevel.ALL] in most cases.
+     * - We must use [StateLevel.UNSUPPORTED] if service version lower than 2.
      * - If your action does not require state gathering, use [StateLevel.WITHOUT_APPS] and action will be sent faster.
-     * @throws SecurityException if trying to call method without having
-     * "ru.sberdevices.permission.CROSS_APP_ACTION" permission
+     * @throws SecurityException if trying to call method without having permission.
      * @return generated message ID that can be used to track response, logs and etc
      */
+    @SinceVersion(1)
     @RequiresPermission("ru.sberdevices.permission.CROSS_APP_ACTION")
     fun sendAction(
         messageName: MessageName,
@@ -60,18 +57,21 @@ interface Messaging {
     /**
      * Send text [text], as if this text was spoken by user.
      */
+    @SinceVersion(1)
     fun sendText(text: String)
 
     /**
      * Add message [listener].
      */
     @AnyThread
+    @SinceVersion(1)
     fun addListener(listener: Listener)
 
     /**
      * Remove message [listener].
      */
     @AnyThread
+    @SinceVersion(1)
     fun removeListener(listener: Listener)
 
     /**

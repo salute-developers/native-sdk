@@ -1,3 +1,5 @@
+import org.apache.tools.ant.taskdefs.condition.Os
+
 ext.versions = [:]
 
 versions.minSdk = 21
@@ -13,7 +15,8 @@ versions.kotlinxCoroutines = "1.6.1"
 // protobuf
 versions.protobuf_lite = "3.0.1"
 versions.protoc = "3.19.1"
-versions.protoc_javalite = "3.0.0"
+// handling Apple M processors
+versions.protoc_javalite = "3.0.0${Os.isFamily(Os.FAMILY_MAC) ? ':osx-x86_64' : ''}"
 
 // AndroidX
 versions.androidx = [:]

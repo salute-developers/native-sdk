@@ -1,6 +1,7 @@
 package ru.sberdevices.services.assistant
 
 import androidx.annotation.AnyThread
+import ru.sberdevices.common.binderhelper.SinceVersion
 
 /**
  * Api to work with smart assistant features on device.
@@ -21,6 +22,7 @@ interface PublicAssistantLib {
      * }
      */
     @AnyThread
+    @SinceVersion(1)
     fun cancelAssistantSpeech(appInfo: String)
 
     /**
