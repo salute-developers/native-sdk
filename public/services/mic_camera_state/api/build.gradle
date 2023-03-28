@@ -5,6 +5,8 @@ plugins {
 }
 
 dependencies {
+    api project(':public:common:binderhelper:api')
+
     implementation "androidx.annotation:annotation:$versions.annotation"
     implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$versions.kotlinxCoroutines"
 }

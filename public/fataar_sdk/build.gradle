@@ -30,7 +30,7 @@ afterEvaluate {
 }
 
 dependencies {
-    api "ru.sberdevices.smartapp:common_libs:1.1.0"
+    api "ru.sberdevices.smartapp:common_libs:1.1.1"
 
     embed project(path: ':public:services:appstate:aidl', configuration: 'default')
     embed project(path: ':public:services:appstate:api_appstate', configuration: 'default')

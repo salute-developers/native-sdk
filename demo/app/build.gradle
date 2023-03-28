@@ -52,13 +52,13 @@ android {
 
 dependencies {
     // SberDevices
-//    implementation 'ru.sberdevices.smartapp:sdk:1.0.1'
-//    implementation "ru.sberdevices.smartapp:cv:1.0.1"
+    implementation 'ru.sberdevices.smartapp:sdk:1.1.1'
+    implementation "ru.sberdevices.smartapp:cv:1.1.1"
 
     // Uncomment to test local fat aar
-    implementation files('../common.aar')
-    implementation files('../cv.aar')
-    implementation files('../sdk.aar')
+//    implementation files('../common.aar')
+//    implementation files('../cv.aar')
+//    implementation files('../sdk.aar')
 
     // Android
     implementation "androidx.appcompat:appcompat:$versions.androidx.appcompat"

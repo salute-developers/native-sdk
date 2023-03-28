@@ -3,6 +3,7 @@ package ru.sberdevices.services.mic.camera.state
 import androidx.annotation.AnyThread
 import androidx.annotation.RequiresPermission
 import kotlinx.coroutines.flow.Flow
+import ru.sberdevices.common.binderhelper.SinceVersion
 
 /**
  * Repository of current state of device's camera and microphone.
@@ -12,16 +13,19 @@ interface MicCameraStateRepository {
     /**
      * Current microphone state.
      */
+    @SinceVersion(1)
     val micState: Flow<State>
 
     /**
      * Current camera state.
      */
+    @SinceVersion(1)
     val cameraState: Flow<State>
 
     /**
      * Is camera covered now.
      */
+    @SinceVersion(1)
     val isCameraCovered: Flow<Boolean>
 
     /**
@@ -31,6 +35,7 @@ interface MicCameraStateRepository {
      * Requires permission ru.sberdevices.permission.CHANGE_CAMERA_STATE
      */
     @AnyThread
+    @SinceVersion(1)
     @RequiresPermission("ru.sberdevices.permission.CHANGE_CAMERA_STATE")
     fun setCameraEnabled(newState: Boolean)
 
@@ -41,6 +46,7 @@ interface MicCameraStateRepository {
      * Requires permission ru.sberdevices.permission.CHANGE_CAMERA_STATE
      */
     @AnyThread
+    @SinceVersion(1)
     @RequiresPermission("ru.sberdevices.permission.CHANGE_MIC_STATE")
     fun setMicEnabled(newState: Boolean)
 

@@ -7,7 +7,6 @@ import ru.sberdevices.common.binderhelper.BinderHelper
 import ru.sberdevices.common.binderhelper.BinderHelperFactory2
 import ru.sberdevices.common.binderhelper.CachedBinderHelper
 import ru.sberdevices.common.binderhelper.createCached
-import ru.sberdevices.common.binderhelper.sdk.VersionedServiceSdkProxy
 import ru.sberdevices.common.coroutines.CoroutineDispatchers
 import ru.sberdevices.services.paylib.aidl.wrappers.PayStatusListenerWrapperImpl
 
@@ -26,14 +25,11 @@ class PayLibFactory(
     fun create(): PayLib {
         val binderHelper = getBinderHelper()
 
-        return VersionedServiceSdkProxy.proxy(
-            binderHelper = binderHelper,
-            implInstance = PayLibImpl(
-                helper = binderHelper,
-                dispatchers = coroutineDispatchers,
-                payStatusListenerWrapper = PayStatusListenerWrapperImpl(),
-                callbackScope = CoroutineScope(SupervisorJob() + coroutineDispatchers.default)
-            )
+        return PayLibImpl(
+            helper = binderHelper,
+            dispatchers = coroutineDispatchers,
+            payStatusListenerWrapper = PayStatusListenerWrapperImpl(),
+            callbackScope = CoroutineScope(SupervisorJob() + coroutineDispatchers.default)
         )
     }
 
