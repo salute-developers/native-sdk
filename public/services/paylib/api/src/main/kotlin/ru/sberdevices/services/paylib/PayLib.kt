@@ -9,7 +9,7 @@ import ru.sberdevices.services.paylib.entities.PayStatus
 interface PayLib {
 
     /**
-     * Запуск оплаты. Подробнее об этапах оплаты см. по ссылке: https://developers.sber.ru/docs/ru/smartservices/smartpay/processing/payment-steps
+     * Запуск оплаты. Подробнее об этапах оплаты см. по ссылке: https://developers.sber.ru/docs/ru/va/how-to/monetization/payments/smartpay/processing/payment-steps
      *
      * @param invoiceId Идентификатор созданного счета.
      * @return Результат оплаты.
