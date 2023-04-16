@@ -4,7 +4,7 @@ import kotlinx.serialization.Serializable
 
 /**
  * Базовая структура счета для создания заказа.
- * @see <a href="https://developers.sber.ru/docs/ru/va/reference/smartservices/smartpay/processing/smartpay-api">API SmartPay</a>
+ * @see <a href="https://developers.sber.ru/docs/ru/va/how-to/monetization/payments/smartpay/processing/api#tag/Platezhi/operation/create_invoice">Описание счета в поле invoices запроса POST /invoices</a>
  */
 @Serializable
 data class Invoice(

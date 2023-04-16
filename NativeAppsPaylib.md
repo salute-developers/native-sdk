@@ -1,6 +1,6 @@
 # Прием платежей с библиотекой messaging
 
-Если вы подключили прием платежей в Native App c помощью библиотеки **messaging**, используйте пример ниже — настройка одностадийного платежа в смартапе, созданном в [SmartApp Code](https://developers.sber.ru/docs/ru/va/reference/code/overview) с шаблоном [Монетизация для Native App](https://developers.sber.ru/docs/ru/va/reference/code/templates/smartapp-templates).
+Если вы подключили прием платежей в Native App c помощью библиотеки **messaging**, используйте пример ниже — настройка одностадийного платежа в смартапе, созданном в [SmartApp Code](https://developers.sber.ru/docs/ru/va/reference/code/overview) с шаблоном [Монетизация для Native App](https://developers.sber.ru/docs/ru/va/reference/code/templates/smartapp-templates#monetizatsiya-dlya-native-app).
 
 ## Формирование заказа
 
@@ -106,7 +106,7 @@ private fun formBuyServerActionPayload(cardInfo: CardInfo, orderInfo: OrderInfo)
 ## Проведение оплаты
 После завершения диалога об оплате необходимо получить его статус. Для этого в **main.cs** сценария добавьте новый state, который принимает команды с уникальным идентификатором `PAY_DIALOG_FINISHED`.
 
-Результат работы диалога оплаты отображается в параметре response_code. Возможные значения `response_code` смотрите в разделе [Формат результата оплаты](https://developers.sber.ru/docs/ru/va/how-to/monetization/payments/payment-processing).
+Результат работы диалога оплаты отображается в параметре response_code. Возможные значения `response_code` смотрите в разделе [Формат результата оплаты](https://developers.sber.ru/docs/ru/va/how-to/monetization/payments/smartpay/processing/smartapp-api#format-rezultata-oplaty).
 
 ```
 state: PayDialogFinished
@@ -125,8 +125,8 @@ state: PayDialogFinished
 
 ## Получение статуса платежа
 
-Для проверки статуса платежа используйте запрос [GET /invoices/{invoice_id}](https://developers.sber.ru/docs/ru/va/reference/smartservices/smartpay/processing/smartpay-api).
+Для проверки статуса платежа используйте запрос [GET /invoices/{invoice_id}](https://developers.sber.ru/docs/ru/va/how-to/monetization/payments/smartpay/processing/api#tag/Platezhi/operation/get_invoice).
 
-Убедитесь, что заказ перешел в [финальный статус](https://developers.sber.ru/docs/ru/va/reference/smartservices/smartpay/processing/payment-statuses), и отобразите результат пользователю.
+Убедитесь, что заказ перешел в [финальный статус](https://developers.sber.ru/docs/ru/va/how-to/monetization/payments/smartpay/processing/payment-statuses), и отобразите результат пользователю.
 
 

@@ -204,7 +204,7 @@ class SmartAppViewModel(
 
         /**
          * Идентификатор для категории оплаченных товаров и услуг
-         * @see <a href="https://developers.sber.ru/docs/ru/va/how-to/monetization/payments/access">Тестовый Service_id</a>
+         * @see <a href="https://developers.sber.ru/docs/ru/va/how-to/monetization/payments/access#testovyy-token2">Тестовый Service_id</a>
          */
         const val PAYLIB_TEST_SERVICE_ID = "27"
     }
